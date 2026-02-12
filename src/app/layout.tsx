@@ -37,7 +37,7 @@ export default function RootLayout({
         {/* Phosphor Icons script */}
         <script src="https://unpkg.com/@phosphor-icons/web" async></script>
       </head>
-      <body className="bg-bg-body text-white font-sans antialiased pb-20 selection:bg-blue-500 selection:text-white">
+      <body className="bg-bg-body text-white font-sans antialiased pb-20 selection:bg-blue-500 selection:text-white" suppressHydrationWarning>
         <div className="bg-glow"></div>
         {children}
         {/* ScrollReveal Script */}
