@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use | CalmFlight</title>
+    <meta name="description"
+        content="Terms of Use for CalmFlight. Offline flight-anxiety tools provided as-is; no medical advice.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --bg-body: #050a14;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ios-glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+        }
+
+        .bg-glow {
+            background: radial-gradient(circle at 50% -20%, #1e40af 0%, transparent 60%);
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.6;
+        }
+    </style>
+
+    <!-- SEO / Social -->
+    <link rel="canonical" href="https://calmflight.netlify.app/terms.html">
+    <meta name="robots" content="index,follow">
+    <meta property="og:site_name" content="CalmFlight">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calmflight.netlify.app/terms.html">
+    <meta property="og:title" content="CalmFlight — Terms of Use">
+    <meta property="og:description"
+        content="Terms of Use for CalmFlight. Offline flight-anxiety tools provided as-is; no medical advice.">
+    <meta property="og:image" content="https://calmflight.netlify.app/logo_wide.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CalmFlight — Terms of Use">
+    <meta name="twitter:description"
+        content="Terms of Use for CalmFlight. Offline flight-anxiety tools provided as-is; no medical advice.">
+    <meta name="twitter:image" content="https://calmflight.netlify.app/logo_wide.png">
+
+</head>
+
+<body class="pb-20">
+
+    <div class="bg-glow"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-[#050a14]/90 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+                <img src="logo_wide.png" alt="Logo" class="h-6 w-auto rounded-md shadow-lg">
+                <span class="font-bold text-lg tracking-tight text-white leading-none pt-0.5">CalmFlight</span>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html"
+                    class="flex items-center gap-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <i class="ph-bold ph-house"></i>
+                    <span class="hidden md:inline">Home</span>
+                </a>
+                <select id="lang-selector" onchange="changeLanguage(this.value)"
+                    class="bg-white/10 text-white text-xs rounded-lg px-2 py-1 border-none outline-none cursor-pointer hover:bg-white/20">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 px-6 max-w-3xl mx-auto">
+        <div class="ios-glass p-8 md:p-12">
+            <h1 class="text-3xl font-bold mb-2" data-key="title">Terms of Use</h1>
+            <p class="text-sm text-slate-400 mb-8" data-key="date">Last Updated: February 2026</p>
+
+            <div class="space-y-8 text-sm leading-relaxed text-slate-300" id="content-area">
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/10 text-center">
+                <a href="index.html"
+                    class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-sm">
+                    <i class="ph-bold ph-arrow-left"></i>
+                    <span data-key="back_home">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const content = {
+            en: {
+                title: "Terms of Use (EULA)",
+                date: "Last Updated: February 2026",
+                back_home: "Back to Home",
+                sections: [
+                    { h: "1. Standard EULA", p: "By downloading or using CalmFlight, you agree to the terms of the standard Apple End User License Agreement (EULA). You can review these terms here: <a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' class='text-blue-400 underline'>Apple Standard EULA</a>." },
+                    { h: "2. Medical Disclaimer", p: "<strong>CalmFlight is not a medical device.</strong> The content, breathing exercises, and techniques provided in this app are for educational and self-help purposes only. They are not intended to diagnose, treat, or cure any medical condition. If you suffer from a severe anxiety disorder, panic disorder, or specific phobia, please consult a qualified mental health professional." },
+                    { h: "3. Refund Policy", p: "CalmFlight is a one-time purchase. All billing and refunds are handled directly by Apple. If you are unhappy with the app, you may request a refund via the App Store according to Apple's refund policies." },
+                    { h: "4. Intellectual Property", p: "All content, sounds, and visual assets within CalmFlight are the property of the developer or used under license. You may not reverse engineer, decompile, or copy the app assets." },
+                    { h: "5. Contact", p: "For support or questions regarding these terms, contact: <strong>contact@calmflightapp.com</strong>" }
+                ]
+            },
+            es: {
+                title: "Términos de Uso",
+                date: "Última actualización: Febrero 2026",
+                back_home: "Volver al Inicio",
+                sections: [
+                    { h: "1. EULA Estándar", p: "Al descargar CalmFlight, aceptas los términos del Acuerdo de Licencia de Usuario Final (EULA) estándar de Apple. Puedes revisarlos aquí: <a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' class='text-blue-400 underline'>EULA de Apple</a>." },
+                    { h: "2. Descargo Médico", p: "<strong>CalmFlight no es un dispositivo médico.</strong> El contenido y los ejercicios son solo para fines educativos y de autoayuda. No pretenden diagnosticar ni curar ninguna condición médica. Si sufres de un trastorno de ansiedad severo, consulta a un profesional." },
+                    { h: "3. Política de Reembolso", p: "Todas las compras y reembolsos son gestionados directamente por Apple a través de la App Store." },
+                    { h: "4. Propiedad Intelectual", p: "Todo el contenido y activos visuales de CalmFlight son propiedad del desarrollador. No está permitido copiar ni realizar ingeniería inversa." },
+                    { h: "5. Contacto", p: "Para soporte: <strong>contact@calmflightapp.com</strong>" }
+                ]
+            },
+            fr: {
+                title: "Conditions d'Utilisation",
+                date: "Dernière mise à jour : Février 2026",
+                back_home: "Retour à l'accueil",
+                sections: [
+                    { h: "1. CLUF Standard", p: "En téléchargeant CalmFlight, vous acceptez le Contrat de Licence Utilisateur Final (CLUF) standard d'Apple : <a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' class='text-blue-400 underline'>CLUF Apple</a>." },
+                    { h: "2. Avertissement Médical", p: "<strong>CalmFlight n'est pas un dispositif médical.</strong> Le contenu est à des fins éducatives uniquement. Il n'est pas destiné à diagnostiquer ou traiter une maladie. Consultez un professionnel si vous souffrez de troubles anxieux sévères." },
+                    { h: "3. Remboursements", p: "Tous les paiements et remboursements sont gérés directement par Apple via l'App Store." },
+                    { h: "4. Propriété Intellectuelle", p: "Tout le contenu appartient au développeur. La copie ou l'ingénierie inverse est interdite." },
+                    { h: "5. Contact", p: "Support : <strong>contact@calmflightapp.com</strong>" }
+                ]
+            },
+            de: {
+                title: "Nutzungsbedingungen",
+                date: "Stand: Februar 2026",
+                back_home: "Zurück zur Startseite",
+                sections: [
+                    { h: "1. Standard-EULA", p: "Durch das Laden von CalmFlight stimmen Sie der Standard-Endbenutzer-Lizenzvereinbarung (EULA) von Apple zu: <a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' class='text-blue-400 underline'>Apple EULA</a>." },
+                    { h: "2. Medizinischer Hinweis", p: "<strong>CalmFlight ist kein Medizinprodukt.</strong> Die Inhalte dienen nur zu Bildungszwecken. Sie sind nicht dazu bestimmt, medizinische Zustände zu diagnostizieren oder zu heilen. Bei schweren Angststörungen wenden Sie sich bitte an einen Arzt." },
+                    { h: "3. Rückerstattungen", p: "Alle Zahlungen und Rückerstattungen werden direkt von Apple über den App Store abgewickelt." },
+                    { h: "4. Geistiges Eigentum", p: "Alle Inhalte sind Eigentum des Entwicklers. Kopieren oder Reverse Engineering ist untersagt." },
+                    { h: "5. Kontakt", p: "Support: <strong>contact@calmflightapp.com</strong>" }
+                ]
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('calmflight_lang', lang);
+            document.getElementById('lang-selector').value = lang;
+
+            document.querySelector('[data-key="title"]').innerText = content[lang].title;
+            document.querySelector('[data-key="date"]').innerText = content[lang].date;
+            document.querySelector('[data-key="back_home"]').innerText = content[lang].back_home;
+
+            const area = document.getElementById('content-area');
+            area.innerHTML = '';
+            content[lang].sections.forEach(sec => {
+                const div = document.createElement('div');
+                div.innerHTML = `<h3 class="text-white font-bold mb-2">${sec.h}</h3><p>${sec.p}</p>`;
+                area.appendChild(div);
+            });
+        }
+
+        // Auto-load saved language
+        const savedLang = localStorage.getItem('calmflight_lang');
+        const userLang = navigator.language || navigator.userLanguage;
+
+        if (savedLang) { changeLanguage(savedLang); }
+        else if (userLang.startsWith('es')) { changeLanguage('es'); }
+        else if (userLang.startsWith('fr')) { changeLanguage('fr'); }
+        else if (userLang.startsWith('de')) { changeLanguage('de'); }
+        else { changeLanguage('en'); }
+    </script>
+</body>
+
+</html>

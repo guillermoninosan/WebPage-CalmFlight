@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap | CalmFlight</title>
+    <meta name="description" content="Release notes and changelog for CalmFlight.">
+
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script defer src="./script.js"></script>
+
+    <!-- SEO / Social -->
+    <link rel="canonical" href="https://calmflight.netlify.app/releases.html">
+    <meta name="robots" content="index,follow">
+    <meta property="og:site_name" content="CalmFlight">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calmflight.netlify.app/releases.html">
+    <meta property="og:title" content="CalmFlight — Release Notes">
+    <meta property="og:description" content="Release notes and changelog for CalmFlight.">
+    <meta property="og:image" content="https://calmflight.netlify.app/logo_wide.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CalmFlight — Release Notes">
+    <meta name="twitter:description" content="Release notes and changelog for CalmFlight.">
+    <meta name="twitter:image" content="https://calmflight.netlify.app/logo_wide.png">
+
+</head>
+
+<body class="bg-bg-body text-white font-sans antialiased pb-20">
+
+    <div class="bg-glow"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-[#050a14]/90 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+                <img src="logo_wide.webp" alt="Logo" class="h-6 w-auto rounded-md shadow-lg">
+                <span class="font-bold text-lg tracking-tight text-white leading-none pt-0.5">CalmFlight</span>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html"
+                    class="flex items-center gap-1 text-sm text-slate-300 hover:text-white transition-colors">
+                    <i class="ph-bold ph-house"></i>
+                    <span class="hidden md:inline">Home</span>
+                </a>
+                <select id="lang-selector" onchange="changeLanguage(this.value)"
+                    class="bg-white/10 text-white text-xs rounded-lg px-2 py-1 border-none outline-none cursor-pointer hover:bg-white/20">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold mb-2" data-key="page_title">Launch Roadmap</h1>
+            <p class="text-slate-400 text-sm" data-key="page_subtitle">A lifetime of updates. One price.</p>
+        </div>
+
+        <div class="relative space-y-8" id="roadmap-container">
+            <div class="timeline-line hidden md:block"></div>
+
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <a href="index.html"
+                class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-sm">
+                <i class="ph-bold ph-arrow-left"></i>
+                <span data-key="back_home">Back to Home</span>
+            </a>
+        </div>
+    </main>
+
+
+</body>
+
+</html>

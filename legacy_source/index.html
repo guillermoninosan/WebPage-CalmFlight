@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CalmFlight | Premium Flight Anxiety Relief</title>
+    <meta name="description"
+        content="Offline tools for nervous flyers: panic-button breathing, calming sounds, focus games, and simple science—works in Airplane Mode.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CalmFlight",
+      "operatingSystem": "iOS",
+      "applicationCategory": "HealthApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Offline flight anxiety relief tool featuring guided breathing, cognitive distraction games, and cabin sound masking.",
+      "featureList": "Offline Mode, Panic Button, Cognitive Games, Turbulence Education"
+    }
+    </script>
+
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script defer src="./script.js"></script>
+
+    <link rel="canonical" href="https://calmflight.netlify.app/">
+    <meta name="robots" content="index,follow">
+    <meta property="og:site_name" content="CalmFlight">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calmflight.netlify.app/">
+    <meta property="og:title" content="CalmFlight — Your calm companion for flights">
+    <meta property="og:description"
+        content="Offline tools for nervous flyers: panic-button breathing, calming sounds, focus games, and simple science—works in Airplane Mode.">
+    <meta property="og:image" content="https://calmflight.netlify.app/logo_wide.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CalmFlight — Your calm companion for flights">
+    <meta name="twitter:description"
+        content="Offline tools for nervous flyers: panic-button breathing, calming sounds, focus games, and simple science—works in Airplane Mode.">
+    <meta name="twitter:image" content="https://calmflight.netlify.app/logo_wide.png">
+
+</head>
+
+<body class="bg-bg-body text-white font-sans antialiased pb-20 selection:bg-blue-500 selection:text-white">
+
+    <div class="bg-glow"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-[#050a14]/90 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex justify-between items-center">
+
+            <div class="flex items-center gap-1.5">
+                <img src="logo_wide.webp" alt="Logo" class="h-8 w-auto rounded-lg shadow-lg">
+                <span class="font-bold text-2xl tracking-tight text-white leading-none pt-0.5">CalmFlight</span>
+            </div>
+
+            <div class="flex gap-4 items-center relative">
+
+                <a href="blog.html"
+                    class="hidden md:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
+                    <i class="ph-fill ph-notebook text-blue-400"></i>
+                    <span>Blog</span>
+                </a>
+
+                <div class="relative">
+                    <button id="lang-btn" onclick="toggleDropdown(event)"
+                        class="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-2 rounded-full text-sm font-medium transition-all w-32 justify-between">
+                        <span id="current-lang-label">English</span>
+                        <i id="lang-arrow"
+                            class="ph-bold ph-caret-down text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="lang-menu"
+                        class="dropdown-menu absolute top-full right-0 mt-2 w-40 bg-[#1c1c1e] border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-xl z-50">
+                        <div class="p-1">
+                            <button onclick="selectLang('en', 'English')"
+                                class="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors flex items-center justify-between group">English
+                                <i class="ph-bold ph-check text-blue-500 opacity-0 group-[.selected]:opacity-100"
+                                    id="check-en"></i></button>
+                            <button onclick="selectLang('es', 'Español')"
+                                class="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors flex items-center justify-between group">Español
+                                <i class="ph-bold ph-check text-blue-500 opacity-0 group-[.selected]:opacity-100"
+                                    id="check-es"></i></button>
+                            <button onclick="selectLang('fr', 'Français')"
+                                class="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors flex items-center justify-between group">Français
+                                <i class="ph-bold ph-check text-blue-500 opacity-0 group-[.selected]:opacity-100"
+                                    id="check-fr"></i></button>
+                            <button onclick="selectLang('de', 'Deutsch')"
+                                class="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors flex items-center justify-between group">Deutsch
+                                <i class="ph-bold ph-check text-blue-500 opacity-0 group-[.selected]:opacity-100"
+                                    id="check-de"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-600/20 border border-blue-500/50 text-blue-200 px-5 py-2 rounded-full text-xs font-bold shadow-lg shadow-blue-900/20 cursor-default"
+                    data-key="nav_date">
+                    March 1st
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-300 text-[10px] font-bold uppercase tracking-wider mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                    <span data-key="offline_badge">Works 100% Offline</span>
+                </div>
+
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight">
+                    <span data-key="headline_1">Turn turbulence into</span> <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300"
+                        data-key="headline_2">your new calm.</span>
+                </h1>
+
+                <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-md" data-key="subheadline">
+                    Where immediate relaxation meets knowledge. From deep breathing to cognitive distraction in two
+                    minutes.
+                </p>
+
+                <div class="w-full max-w-md mt-8">
+                    <form name="waitlist" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-3">
+                        <input type="hidden" name="form-name" value="waitlist" />
+
+                        <div class="relative flex-grow">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="ph-fill ph-envelope-simple text-slate-400"></i>
+                            </div>
+                            <input type="email" name="email" data-key-placeholder="email_placeholder"
+                                placeholder="Enter your email" required
+                                class="w-full h-12 pl-10 pr-4 bg-blue-900/20 border border-blue-500/30 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all">
+                        </div>
+
+                        <button type="submit"
+                            class="h-12 px-6 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                            <span data-key="notify_btn">Notify Me</span>
+                            <i class="ph-bold ph-bell-ringing"></i>
+                        </button>
+                    </form>
+
+                    <p class="mt-3 text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
+                        <i class="ph-fill ph-check-circle text-blue-400"></i>
+                        <span data-key="email_disclaimer">Be the first to download on March 1st.</span>
+                    </p>
+                </div>
+
+                <div class="mt-8 flex flex-col items-start gap-3">
+                    <div class="text-sm text-gray-500 flex items-center gap-2">
+                        <i class="ph-fill ph-download-simple text-blue-400"></i>
+                        <span class="text-white font-bold tracking-wide" data-key="price_free">Free Download</span>
+                        <span class="text-slate-500">•</span>
+                        <span class="text-slate-400 text-xs" data-key="iap_badge">In-App Purchase</span>
+                    </div>
+
+                    <div
+                        class="text-[11px] text-teal-300 font-medium bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                        <i class="ph-bold ph-infinity"></i>
+                        <span data-key="premium_offer">Lifetime Premium: $12.99 (One-time)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center scale-95 md:scale-100">
+                <div
+                    class="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
+
+                    <video id="app-video" poster="app_mockup_en.webp" autoplay loop muted playsinline
+                        class="w-full h-full object-cover mt-10 rounded-t-[32px]">
+                        <source src="app_demo.mp4" type="video/mp4">
+                        <img src="app_mockup_en.webp" alt="CalmFlight App Demo" class="mt-10 rounded-t-[32px]">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold mb-8" data-key="features_title">Designed for In-Flight</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="ios-glass p-8 col-span-1 md:col-span-2 relative overflow-hidden group">
+                <div class="relative z-10">
+                    <div
+                        class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 text-xl mb-4">
+                        <i class="ph-fill ph-path"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-key="feat_1_title">The "I'm Having a Panic Attack" Flow</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-lg" data-key="feat_1_desc">
+                        An emergency button taking you from anxiety to distraction in two minutes. Guided breathing and
+                        cognitive games.
+                    </p>
+                </div>
+            </div>
+            <div class="ios-glass p-8 col-span-1 flex flex-col justify-between">
+                <div>
+                    <div
+                        class="w-10 h-10 bg-teal-500/20 rounded-full flex items-center justify-center text-teal-400 text-xl mb-4">
+                        <i class="ph-fill ph-airplane-in-flight"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3" data-key="feat_2_title">Always Available In-Flight</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed" data-key="feat_2_desc">
+                        Everything works locally. No loading screens. Audio continues even when your phone is locked.
+                    </p>
+                </div>
+            </div>
+            <div class="ios-glass p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="ph-fill ph-chalkboard-teacher text-purple-400 text-xl"></i>
+                    <h3 class="font-bold text-sm" data-key="feat_3_title">Knowledge Explained Simply</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed" data-key="feat_3_desc">
+                    We validate your fear without dramatizing it. Clear explanations of turbulence physics and how
+                    planes work.
+                </p>
+            </div>
+            <div class="ios-glass p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="ph-fill ph-hand-tap text-orange-400 text-xl"></i>
+                    <h3 class="font-bold text-sm" data-key="feat_4_title">Haptics & Accessibility</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed" data-key="feat_4_desc">
+                    Vibration-assisted breathing exercises and support for increasing text size.
+                </p>
+            </div>
+            <div class="ios-glass p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="ph-fill ph-headphones text-green-400 text-xl"></i>
+                    <h3 class="font-bold text-sm" data-key="feat_5_title">Relaxing Sounds</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed" data-key="feat_5_desc">
+                    Access a selection of sounds to help you relax. Play them in the background to mask cabin noise,
+                    even with your phone locked.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-blue-300/70">Flight Calm Journal</p>
+                <h2 class="text-2xl font-bold mt-2">From the blog</h2>
+            </div>
+            <a href="blog.html"
+                class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
+                Browse all articles <i class="ph-bold ph-caret-right"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article class="ios-glass p-6 md:p-8">
+                <div class="flex items-center gap-3 text-xs text-slate-400 mb-4">
+                    <span class="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
+                    <span>Feb 12, 2026</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">How oxygen masks work on a plane</h3>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                    A calm, step-by-step guide to why masks drop, how they make oxygen, and what to do when they appear.
+                </p>
+                <a href="blog/oxygen-mask.html"
+                    class="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
+                    Read article <i class="ph-bold ph-caret-right"></i>
+                </a>
+            </article>
+            <div class="ios-glass p-6 md:p-8 flex flex-col justify-between border border-white/5">
+                <div>
+                    <div
+                        class="w-10 h-10 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-300 text-xl mb-4">
+                        <i class="ph-fill ph-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">New articles every month</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Short, science-backed explainers to make flying feel predictable and less intimidating.
+                    </p>
+                </div>
+                <a href="blog.html"
+                    class="mt-6 inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
+                    Visit the blog <i class="ph-bold ph-caret-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-6 py-16">
+        <div class="text-center mb-12 relative">
+            <h2 class="text-2xl font-bold mb-2" data-key="roadmap_title">Launch Roadmap</h2>
+            <p class="text-slate-400 text-sm mb-4" data-key="roadmap_sub">A lifetime of updates. One price.</p>
+
+            <a href="releases.html"
+                class="inline-flex items-center gap-1 text-xs text-blue-400 hover:text-white transition-colors font-medium">
+                <span data-key="view_roadmap">View Full Roadmap</span>
+                <i class="ph-bold ph-caret-right"></i>
+            </a>
+        </div>
+
+        <div class="relative space-y-8" id="roadmap-container">
+            <div class="timeline-line hidden md:block"></div>
+        </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-6 py-12 mb-12">
+        <div class="ios-glass p-8 text-center">
+            <h2 class="text-2xl font-bold mb-4" data-key="contact_title">Contact Developer</h2>
+            <p class="text-slate-400 text-sm mb-6 max-w-md mx-auto" data-key="contact_sub">
+                CalmFlight is built with care and love. If you have questions, send me a message.
+            </p>
+            <form name="contact" method="POST" data-netlify="true" class="max-w-sm mx-auto space-y-4">
+                <input type="hidden" name="form-name" value="contact" />
+
+                <input type="text" name="name" placeholder="Name" required
+                    class="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+
+                <input type="email" name="email" placeholder="Email" required
+                    class="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+
+                <textarea name="message" placeholder="Message" rows="3" required
+                    class="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all"
+                    data-key="send_btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="max-w-5xl mx-auto px-6 py-12 border-t border-white/10 text-center md:text-left">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <div
+                    class="flex items-center justify-center md:justify-start gap-2 font-semibold text-lg mb-4 opacity-80">
+                    <img src="logo_wide.webp" class="h-6 w-auto rounded" loading="lazy">
+                    CalmFlight
+                </div>
+                <p class="text-xs text-slate-500 max-w-xs mx-auto md:mx-0">
+                    A premium, lifetime-access tool for nervous flyers. Built with care for iOS.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:items-end justify-center gap-6">
+
+                <a href="https://www.instagram.com/calmflightapp/" target="_blank" rel="noopener noreferrer"
+                    class="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                    <span
+                        class="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0">Follow
+                        on Instagram</span>
+                    <i class="ph-fill ph-instagram-logo text-2xl group-hover:text-pink-500 transition-colors"></i>
+                </a>
+
+                <div class="flex gap-4 text-xs text-slate-400 underline">
+                    <a href="privacy.html" class="hover:text-white transition-colors" data-key="link_privacy">Privacy
+                        Policy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors" data-key="link_terms">Terms
+                        (EULA)</a>
+                    <a href="releases.html" class="hover:text-white transition-colors"
+                        data-key="link_releases">Versions</a>
+                    <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                </div>
+
+                <p class="text-[10px] text-slate-600">
+                    &copy; 2026 CalmFlight. Not affiliated with any airline.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>

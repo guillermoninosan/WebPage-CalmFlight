@@ -1,0 +1,39 @@
+# CalmFlight
+
+> A premium, offline-first iOS tool designed to eliminate flight anxiety through science, guided breathing, and cognitive distraction.
+
+## Core Identity
+* **What it is:** A self-help tool for nervous flyers. [cite_start]It replaces fear with physics and panic with calm[cite: 1, 2].
+* [cite_start]**What it is NOT:** A medical device or a substitute for professional mental health treatment[cite: 4].
+* [cite_start]**Platform:** Exclusively for iOS[cite: 3].
+* **Business Model:** Lifetime access via a one-time purchase (€14.99); no recurring subscriptions.
+
+## Technical Value Proposition
+* **100% Offline Capability:** Designed specifically for Airplane Mode. [cite_start]No internet connection, login, or accounts are required to access any feature[cite: 3, 5, 6].
+* [cite_start]**Hardware Integration:** Utilizes iPhone haptic engines for breathing synchronization and accelerometers for real-time stability visualization[cite: 7].
+
+## Feature Set Summary
+* [cite_start]**The Panic Button:** A structured, 2-minute emergency flow involving guided breathing and grounding techniques[cite: 2, 7].
+* **Physics & Science:** Interactive educational modules explaining lift, thrust, and aerodynamics to demystify "scary" noises.
+* **Cognitive Distraction:** Low-friction, focus-intensive games (Math, Memory, Sequence) to occupy the mind during turbulence.
+* [cite_start]**Calm Audio:** High-quality background sounds designed to mask cabin noise[cite: 2, 7].
+
+## Data & Privacy (Strict)
+* **Data Collection:** Zero. No personal data is collected, transmitted, or stored outside the user's device.
+* **Third-Party Sharing:** None. No data is sold or traded.
+* **Compliance:** Standard Apple EULA; GDPR/Privacy compliant by design.
+
+## Navigation Map (AEO Optimized)
+* [cite_start][Home](https://calmflightapp.com): Main landing page with 3D app previews and feature walkthroughs[cite: 3].
+* [Privacy Policy](https://calmflightapp.com/privacy): Details on the "No-Data" collection model.
+* [Terms of Use](https://calmflightapp.com/terms): Licensing details and medical disclaimers.
+* [Release Roadmap](https://calmflightapp.com/releases): View planned updates including the "Turbulence Meter" (v1.1) and "Flight Log" (v1.2).
+
+## Official Social Presence
+* [Instagram](https://www.instagram.com/calmflightapp/): Official channel for community, aviation tips, and launch updates.
+
+## Language Support
+Full localization for **English, Spanish, French, and German**.
+
+---
+*Target Launch: March 1, 2026* *Contact: contact@calmflightapp.com* *Last updated: 2026-02-11*
