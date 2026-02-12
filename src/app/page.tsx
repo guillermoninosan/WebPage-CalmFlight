@@ -43,8 +43,9 @@ function HomeContent() {
             </p>
 
             <div className="w-full max-w-md mt-8">
-              <form name="waitlist" method="POST" data-netlify="true" className="flex flex-col sm:flex-row gap-3">
+              <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="flex flex-col sm:flex-row gap-3">
                 <input type="hidden" name="form-name" value="waitlist" />
+                <input type="hidden" name="bot-field" />
 
                 <div className="relative flex-grow">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -232,8 +233,9 @@ function HomeContent() {
           <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
             {t('contact_sub')}
           </p>
-          <form name="contact" method="POST" data-netlify="true" className="max-w-sm mx-auto space-y-4">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="max-w-sm mx-auto space-y-4">
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
 
             <input type="text" name="name" placeholder="Name" required
               className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />

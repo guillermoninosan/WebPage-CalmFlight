@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netlify Forms Detection</title>
+</head>
+
+<body>
+    <!-- 
+      This file is used by Netlify's build bots to detect forms
+      when using the Next.js Runtime (which renders dynamically).
+      It is not linked or visible to users.
+    -->
+
+    <!-- Waitlist Form -->
+    <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="waitlist" />
+        <input type="hidden" name="bot-field" />
+        <input type="email" name="email" />
+    </form>
+
+    <!-- Contact Form -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+    </form>
+</body>
+
+</html>
