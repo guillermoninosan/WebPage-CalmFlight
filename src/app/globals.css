@@ -1,14 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-bg-body: #050a14;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+}
 
 @layer components {
   .ios-glass {
-    @apply bg-slate-800/70 backdrop-blur-[25px] border border-white/10 rounded-3xl transition-all duration-200;
+    background-color: rgb(30 41 59 / 0.7);
+    /* slate-800 at 70% */
+    border-color: rgb(255 255 255 / 0.1);
+    @apply backdrop-blur-[25px] border rounded-3xl transition-all duration-200;
   }
 
   .ios-glass:hover {
-    @apply scale-[1.01] bg-slate-800/90;
+    background-color: rgb(30 41 59 / 0.9);
+    /* slate-800 at 90% */
+    @apply scale-[1.01];
   }
 }
 
@@ -22,7 +30,8 @@
 
 /* Timeline specific styles */
 .timeline-line {
-  @apply absolute top-6 bottom-6 w-0.5 bg-white/10 z-0;
+  background-color: rgb(255 255 255 / 0.1);
+  @apply absolute top-6 bottom-6 w-0.5 z-0;
   left: 24px;
 }
 
@@ -42,14 +51,4 @@
   @apply opacity-100 translate-y-0 scale-100 pointer-events-auto;
 }
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 5, 10, 20;
-  /* Matches legacy #050a14 */
-  --background-end-rgb: 5, 10, 20;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
-}
+/* End of custom styles */

@@ -86,7 +86,7 @@ function HomeContent() {
 
           <div className="relative flex justify-center scale-95 md:scale-100">
             <div
-              className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
+              className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500 pt-10">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
 
               <video
@@ -94,7 +94,7 @@ function HomeContent() {
                 poster={currentPoster}
                 autoPlay loop muted playsInline
                 key={language}
-                className="w-full h-full object-cover mt-10 rounded-t-[32px]"
+                className="w-full h-full object-cover rounded-t-[32px]"
               >
                 <source src="/app_demo.mp4" type="video/mp4" />
                 <img src={currentPoster} alt="CalmFlight App Demo" className="mt-10 rounded-t-[32px]" />
