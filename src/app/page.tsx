@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 import { useLanguage, LanguageProvider } from '@/context/LanguageContext';
 import Link from 'next/link';
 import useScrollReveal from '@/hooks/useScrollReveal';
+import CalmCards from '@/components/CalmCards';
+import FAQ from '@/components/FAQ';
+import PricingComparison from '@/components/PricingComparison';
 
 function HomeContent() {
   const { t, language } = useLanguage();
@@ -29,7 +32,7 @@ function HomeContent() {
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-300 text-[10px] font-bold uppercase tracking-wider mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-              <span>{t('offline_badge')}</span>
+              <span>Launching March 1st</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight" data-animate="headline">
@@ -38,9 +41,14 @@ function HomeContent() {
               >{t('headline_2')}</span>
             </h1>
 
-            <p className="text-slate-400 text-lg leading-relaxed mb-8 max-w-md" data-animate="headline">
+            <p className="text-slate-400 text-lg leading-relaxed mb-6 max-w-md" data-animate="headline">
               {t('subheadline')}
             </p>
+
+            <div className="flex items-center gap-2 text-sm text-green-400 font-medium mb-8">
+              <i className="ph-fill ph-airplane-tilt"></i>
+              <span>Works 100% Offline (Airplane Mode)</span>
+            </div>
 
             <div className="w-full max-w-md mt-8">
               <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="flex flex-col sm:flex-row gap-3">
@@ -58,15 +66,20 @@ function HomeContent() {
 
                 <button type="submit"
                   className="h-12 px-6 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
-                  <span>{t('notify_btn')}</span>
+                  <span>Get launch reminder</span>
                   <i className="ph-bold ph-bell-ringing"></i>
                 </button>
               </form>
 
-              <p className="mt-3 text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
-                <i className="ph-fill ph-check-circle text-blue-400"></i>
-                <span>{t('email_disclaimer')}</span>
-              </p>
+              <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <p className="text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
+                  <i className="ph-fill ph-check-circle text-blue-400"></i>
+                  <span>Includes pre-flight checklist</span>
+                </p>
+                <a href="#calm-cards" className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
+                  Preview free Calm Cards <i className="ph-bold ph-arrow-down"></i>
+                </a>
+              </div>
             </div>
 
             <div className="mt-8 flex flex-col items-start gap-3">
@@ -163,6 +176,14 @@ function HomeContent() {
         </div>
       </section>
 
+      <section id="calm-cards" className="max-w-6xl mx-auto px-6 py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl font-bold mb-4">Free Calm Cards</h2>
+          <p className="text-slate-400 text-sm max-w-xl mx-auto">Built for in-flight moments. Read them, save them, or share them with a nervous flyer.</p>
+        </div>
+        <CalmCards />
+      </section>
+
       <section className="max-w-5xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
           <div>
@@ -225,6 +246,16 @@ function HomeContent() {
           <div className="timeline-line hidden md:block"></div>
           <RoadmapList />
         </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-bold mb-8 text-center">Fair Pricing, Forever</h2>
+        <PricingComparison />
+      </section>
+
+      <section className="max-w-3xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+        <FAQ />
       </section>
 
       <section className="max-w-3xl mx-auto px-6 py-12 mb-12">
