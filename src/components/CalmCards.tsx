@@ -1,17 +1,112 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { toBlob } from 'html-to-image';
+import { saveAs } from 'file-saver';
+import ShareModal from './ShareModal';
 
 export default function CalmCards() {
     const { language } = useLanguage();
     const [copiedId, setCopiedId] = useState<number | null>(null);
+    const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+    const [activeCard, setActiveCard] = useState<any>(null);
+    const [isGenerating, setIsGenerating] = useState(false);
 
-    const handleCopy = (text: string, id: number) => {
-        navigator.clipboard.writeText(text).then(() => {
-            setCopiedId(id);
+    const shareRef = useRef<HTMLDivElement>(null);
+
+    const handleCopyText = () => {
+        if (!activeCard) return;
+        navigator.clipboard.writeText(activeCard.snippet).then(() => {
+            setCopiedId(activeCard.id);
             setTimeout(() => setCopiedId(null), 2000);
+            setIsShareModalOpen(false);
         });
+    };
+
+    const handleCopyLink = () => {
+        if (!activeCard) return;
+        const url = `${window.location.origin}${window.location.pathname}#card-${activeCard.id}`;
+        navigator.clipboard.writeText(url).then(() => {
+            // reused copied state for visual feedback if needed, or simple alert/toast
+            // For now, let's just close modal
+            setIsShareModalOpen(false);
+        });
+    };
+
+    const generateImage = async (card: any) => {
+        if (!shareRef.current) return null;
+
+        // Wait a tick for state to update if we just set activeCard
+        // But better to pass card data explicitly or ensure render
+        // We will force a render with the correct data before capturing
+
+        try {
+            const blob = await toBlob(shareRef.current, {
+                cacheBust: true,
+                width: 1080,
+                height: 1350,
+                skipFonts: true, // Fixes CORS "cssRules" error by not trying to embed external fonts
+                style: {
+                    display: 'flex', // Make it visible during capture
+                    visibility: 'visible',
+                    position: 'static',
+                    transform: 'none',
+                }
+            });
+            return blob;
+        } catch (err) {
+            console.error('Failed to generate image', err);
+            return null;
+        }
+    };
+
+    const handleShare = async (card: any) => {
+        setActiveCard(card);
+        setIsGenerating(true);
+
+        // Allow React to render the hidden card with new data
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        const blob = await generateImage(card);
+        const url = `${window.location.origin}${window.location.pathname}#card-${card.id}`;
+
+        // Native Share
+        if (blob && navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'card.png', { type: 'image/png' })] })) {
+            try {
+                const file = new File([blob], 'calmflight-card.png', { type: 'image/png' });
+                await navigator.share({
+                    title: card.title,
+                    text: card.snippet,
+                    url: url,
+                    files: [file]
+                });
+                setIsGenerating(false);
+                return;
+            } catch (err) {
+                console.log('Share failed or cancelled', err);
+                // Fallthrough to modal if share fails (e.g. user cancelled? No, only if API restricted)
+                // Actually usually if user cancels we stop. 
+                // We'll only fallback if share API is NOT supported or throws specific error?
+                // Use simple check:
+            }
+        }
+
+        // Fallback: Open Modal (Native text share is also an option but we want image share primarily)
+        // If we can't share image natively, we open modal to let user download
+        setIsGenerating(false);
+        setIsShareModalOpen(true);
+    };
+
+    const handleDownload = async () => {
+        if (!activeCard) return;
+        setIsGenerating(true);
+        const blob = await generateImage(activeCard);
+        if (blob) {
+            saveAs(blob, `calmflight-${activeCard.title.toLowerCase().replace(/\s+/g, '-')}.png`);
+        }
+        setIsGenerating(false);
+        setIsShareModalOpen(false);
     };
 
     const cardsData = {
@@ -42,32 +137,88 @@ export default function CalmCards() {
     const displayCards = cards.length < 8 && language !== 'en' ? cardsData['en'] : cards;
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {displayCards.map((card: any) => (
-                <div key={card.id} className="ios-glass p-5 flex flex-col justify-between group hover:bg-slate-800/80 transition-colors">
-                    <div>
-                        <h3 className="font-bold text-sm text-blue-300 mb-2">{card.title}</h3>
-                        <p className="text-xs text-slate-400 leading-relaxed mb-4">{card.text}</p>
+        <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {displayCards.map((card: any) => (
+                    <div id={`card-${card.id}`} key={card.id} className="ios-glass p-5 flex flex-col justify-between group hover:bg-slate-800/80 transition-colors scroll-mt-24">
+                        <div>
+                            <h3 className="font-bold text-sm text-blue-300 mb-2">{card.title}</h3>
+                            <p className="text-xs text-slate-400 leading-relaxed mb-4">{card.text}</p>
+                        </div>
+
+                        <button
+                            onClick={() => handleShare(card)}
+                            disabled={isGenerating && activeCard?.id === card.id}
+                            className="mt-2 w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 text-[10px] uppercase font-bold tracking-wider text-slate-400 flex items-center justify-center gap-2 transition-all"
+                        >
+                            {copiedId === card.id ? (
+                                <>
+                                    <i className="ph-fill ph-check text-green-400"></i>
+                                    <span className="text-green-400">Copied</span>
+                                </>
+                            ) : (
+                                <>
+                                    {isGenerating && activeCard?.id === card.id ? (
+                                        <i className="ph-bold ph-spinner animate-spin"></i>
+                                    ) : (
+                                        <i className="ph-bold ph-share-network"></i>
+                                    )}
+                                    <span>Share</span>
+                                </>
+                            )}
+                        </button>
+                    </div>
+                ))}
+            </div>
+
+            <ShareModal
+                isOpen={isShareModalOpen}
+                onClose={() => setIsShareModalOpen(false)}
+                onCopyText={handleCopyText}
+                onCopyLink={handleCopyLink}
+                onDownload={handleDownload}
+                title={activeCard?.title || 'Card'}
+            />
+
+            {/* Hidden Capture Template */}
+            <div style={{ position: 'fixed', top: '-9999px', left: '-9999px' }} aria-hidden="true">
+                <div
+                    ref={shareRef}
+                    className="w-[1080px] h-[1350px] bg-gradient-to-br from-[#050a14] to-[#0f172a] p-16 flex flex-col justify-between relative overflow-hidden"
+                >
+                    {/* Background Particles/Glow */}
+                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+
+                    <div className="relative z-10">
+                        <div className="flex items-center gap-4 mb-20 opacity-80">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/logo_wide.webp" alt="Logo" className="h-16 w-auto rounded-2xl shadow-xl" />
+                            <span className="text-4xl font-bold text-white tracking-tight">CalmFlight</span>
+                        </div>
+
+                        <h1 className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-blue-200 mb-12 leading-tight">
+                            {activeCard?.title}
+                        </h1>
+
+                        <div className="w-24 h-2 bg-blue-500 rounded-full mb-12"></div>
+
+                        <p className="text-4xl text-slate-300 leading-normal font-medium max-w-4xl">
+                            {activeCard?.text}
+                        </p>
                     </div>
 
-                    <button
-                        onClick={() => handleCopy(card.snippet, card.id)}
-                        className="mt-2 w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 text-[10px] uppercase font-bold tracking-wider text-slate-400 flex items-center justify-center gap-2 transition-all"
-                    >
-                        {copiedId === card.id ? (
-                            <>
-                                <i className="ph-fill ph-check text-green-400"></i>
-                                <span className="text-green-400">Copied</span>
-                            </>
-                        ) : (
-                            <>
-                                <i className="ph-bold ph-share-network"></i>
-                                <span>Share Snippet</span>
-                            </>
-                        )}
-                    </button>
+                    <div className="relative z-10 border-t border-white/10 pt-10 flex justify-between items-end">
+                        <div className="flex flex-col gap-2">
+                            <div className="text-2xl text-blue-400 font-bold tracking-wide">CALMFLIGHT APP</div>
+                            <div className="text-xl text-slate-500">Launching March 1</div>
+                        </div>
+                        <div className="text-xl text-slate-600 bg-white/5 px-6 py-3 rounded-full">
+                            calmflightapp.com
+                        </div>
+                    </div>
                 </div>
-            ))}
-        </div>
+            </div>
+        </>
     );
 }
