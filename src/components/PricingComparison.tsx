@@ -24,7 +24,7 @@ export default function PricingComparison() {
         es: {
             free: "Gratis Siempre",
             premium: "Premium Vitalicio",
-            price: "12,99 €",
+            price: "14,99 €",
             once: "pago único",
             features: [
                 { name: "Respiración Piloto Automático", free: true, prem: true },
@@ -34,6 +34,36 @@ export default function PricingComparison() {
                 { name: "Juegos de Memoria y Secuencia", free: false, prem: true },
                 { name: "Futuros Juegos y Funciones", free: false, prem: true },
                 { name: "Actualizaciones de la App", free: false, prem: true }
+            ]
+        },
+        fr: {
+            free: "Gratuit",
+            premium: "Premium à Vie",
+            price: "14,99 €",
+            once: "paiement unique",
+            features: [
+                { name: "Respiration Pilote Auto", free: true, prem: true },
+                { name: "Jeu de Concentration", free: true, prem: true },
+                { name: "Cartes Éducatives", free: "7 Essentielles", prem: "Bibliothèque Complète" },
+                { name: "Audio Relaxant", free: "Limité", prem: "Accès Total" },
+                { name: "Jeux de Mémoire & Séquence", free: false, prem: true },
+                { name: "Futurs Jeux & Fonctions", free: false, prem: true },
+                { name: "Mises à jour de l'App", free: false, prem: true }
+            ]
+        },
+        de: {
+            free: "Kostenlos",
+            premium: "Lebenslanges Premium",
+            price: "14,99 €",
+            once: "einmalig",
+            features: [
+                { name: "Autopilot-Atmung", free: true, prem: true },
+                { name: "Zahlen-Fokus-Spiel", free: true, prem: true },
+                { name: "Bildungskarten", free: "7 Grundlagen", prem: "Volle Bibliothek" },
+                { name: "Beruhigendes Audio", free: "Begrenzt", prem: "Voller Zugriff" },
+                { name: "Gedächtnis- & Sequenzspiele", free: false, prem: true },
+                { name: "Zukünftige Spiele & Funktionen", free: false, prem: true },
+                { name: "App-Updates", free: false, prem: true }
             ]
         }
     };
