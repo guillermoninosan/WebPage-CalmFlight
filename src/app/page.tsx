@@ -80,50 +80,53 @@ function HomeContent() {
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
                 <p className="text-[10px] text-blue-300 font-medium tracking-wide uppercase">{t('email_disclaimer')}</p>
               </div>
-              <i className="ph-fill ph-check-circle text-blue-400"></i>
-              <span>Includes pre-flight checklist</span>
-            </p>
-            <a href="#calm-cards" className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
-              Preview free Calm Cards <i className="ph-bold ph-arrow-down"></i>
-            </a>
+
+              <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <p className="text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
+                  <i className="ph-fill ph-check-circle text-blue-400"></i>
+                  <span>Includes pre-flight checklist</span>
+                </p>
+                <a href="#calm-cards" className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
+                  Preview free Calm Cards <i className="ph-bold ph-arrow-down"></i>
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-col items-start gap-3">
+              <div className="text-sm text-gray-500 flex items-center gap-2">
+                <i className="ph-fill ph-download-simple text-blue-400"></i>
+                <span className="text-white font-bold tracking-wide">{t('price_free')}</span>
+                <span className="text-slate-500">•</span>
+                <span className="text-slate-400 text-xs">{t('iap_badge')}</span>
+              </div>
+
+              <div
+                className="text-[11px] text-teal-300 font-medium bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                <i className="ph-bold ph-infinity"></i>
+                <span>{t('premium_offer')}</span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="mt-8 flex flex-col items-start gap-3">
-          <div className="text-sm text-gray-500 flex items-center gap-2">
-            <i className="ph-fill ph-download-simple text-blue-400"></i>
-            <span className="text-white font-bold tracking-wide">{t('price_free')}</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-slate-400 text-xs">{t('iap_badge')}</span>
+          <div className="relative flex justify-center scale-95 md:scale-100">
+            <div
+              className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
+
+              <video
+                id="app-video"
+                poster={currentPoster}
+                autoPlay loop muted playsInline
+                key={language}
+                className="w-full h-full object-cover"
+              >
+                <source src="/app_demo.mp4" type="video/mp4" />
+                <img src={currentPoster} alt="CalmFlight App Demo" className="w-full h-full object-cover" />
+              </video>
+            </div>
           </div>
-
-          <div
-            className="text-[11px] text-teal-300 font-medium bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-            <i className="ph-bold ph-infinity"></i>
-            <span>{t('premium_offer')}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative flex justify-center scale-95 md:scale-100">
-        <div
-          className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
-
-          <video
-            id="app-video"
-            poster={currentPoster}
-            autoPlay loop muted playsInline
-            key={language}
-            className="w-full h-full object-cover"
-          >
-            <source src="/app_demo.mp4" type="video/mp4" />
-            <img src={currentPoster} alt="CalmFlight App Demo" className="w-full h-full object-cover" />
-          </video>
-        </div>
-      </div>
-    </div >
-    </header >
+        </div >
+      </header >
 
       <section className="max-w-5xl mx-auto px-6 py-12">
         <h2 className="text-2xl font-bold mb-8">{t('features_title')}</h2>
