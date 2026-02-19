@@ -30,11 +30,13 @@ export default function Footer() {
                         <i className="ph-fill ph-instagram-logo text-2xl group-hover:text-pink-500 transition-colors"></i>
                     </a>
 
-                    <div className="flex gap-4 text-xs text-slate-400 underline">
+                    <div className="flex gap-4 text-xs text-slate-400 underline flex-wrap justify-end">
                         <Link href="/privacy" className="hover:text-white transition-colors">{t('link_privacy')}</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">{t('link_terms')}</Link>
                         <Link href="/releases" className="hover:text-white transition-colors">{t('link_releases')}</Link>
                         <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+                        <Link href="/resources" className="hover:text-white transition-colors">Resources</Link>
+                        <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
                     </div>
 
                     <p className="text-[10px] text-slate-600">

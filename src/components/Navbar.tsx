@@ -51,6 +51,14 @@ export default function Navbar() {
                         <i className="ph-fill ph-notebook text-blue-400"></i>
                         <span>Blog</span>
                     </Link>
+                    <Link href="/resources" className="hidden md:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
+                        <i className="ph-fill ph-books text-green-400"></i>
+                        <span>Resources</span>
+                    </Link>
+                    <Link href="/contact" className="hidden md:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
+                        <i className="ph-fill ph-envelope-simple text-purple-400"></i>
+                        <span>Contact</span>
+                    </Link>
 
                     <div className="relative" ref={dropdownRef}>
                         <button

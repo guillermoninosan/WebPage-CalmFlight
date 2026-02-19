@@ -2,7 +2,9 @@
 
 import { useLanguage, LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from 'next/link';
+import { articles } from '@/lib/articles';
 
 function BlogListContent() {
     const { t } = useLanguage();
@@ -30,72 +32,41 @@ function BlogListContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Featured Article */}
-                    <article className="ios-glass p-8 col-span-1 md:col-span-3 flex flex-col justify-center items-start group cursor-pointer hover:bg-slate-800/80 transition-colors">
-                        <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                            <span className="px-2 py-1 rounded-full bg-purple-500/10 text-purple-200">Anxiety Relief</span>
-                            <span>4 min read</span>
-                        </div>
-                        <Link href="/blog/stop-panic-attack-no-wifi" className="block">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-purple-300 transition-colors">
-                                How to Stop a Panic Attack on a Plane (When You Have No Wi-Fi)
-                            </h2>
-                        </Link>
-                        <p className="text-slate-400 leading-relaxed mb-6 max-w-3xl">
-                            The cabin doors close. The flight attendant tells you to switch to Airplane Mode. For many, this is when panic sets in. Here is the science of offline grounding.
-                        </p>
-                        <Link href="/blog/stop-panic-attack-no-wifi"
-                            className="inline-flex items-center gap-2 text-purple-400 font-semibold hover:text-white transition-colors">
-                            Read full article <i className="ph-bold ph-arrow-right"></i>
-                        </Link>
-                    </article>
+                    {articles.map((article, idx) => {
+                        const isFeatured = idx === 0;
+                        const isPublished = article.status === 'published';
+                        const linkHref = isPublished ? `/blog/${article.slug}` : '/blog';
 
-                    {/* Article Card 1 */}
-                    <article className="ios-glass p-6 flex flex-col items-start group hover:bg-slate-800/80 transition-colors">
-                        <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                            <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
-                            <span>3 min read</span>
-                        </div>
-                        <Link href="/blog/oxygen-mask" className="block">
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
-                                How oxygen masks actually work
-                            </h3>
-                        </Link>
-                        <p className="text-sm text-slate-400 leading-relaxed mb-auto">
-                            It looks chaotic in movies, but in reality, it's a silent, automatic, and redundant safety system.
-                        </p>
-                        <Link href="/blog/oxygen-mask" className="mt-4 text-xs text-blue-400 hover:text-white transition-colors flex items-center gap-1">
-                            Read article <i className="ph-bold ph-caret-right"></i>
-                        </Link>
-                    </article>
-
-                    {/* Article Card 2 */}
-                    <article className="ios-glass p-6 flex flex-col items-start group hover:bg-slate-800/80 transition-colors">
-                        <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                            <span className="px-2 py-1 rounded-full bg-purple-500/10 text-purple-200">Turbulence</span>
-                            <span>Coming Soon</span>
-                        </div>
-                        <h3 className="text-xl font-bold mb-3 group-hover:text-purple-300 transition-colors">
-                            Why the plane drops during turbulence
-                        </h3>
-                        <p className="text-sm text-slate-400 leading-relaxed mb-auto">
-                            It feels like falling hundreds of feet, but usually, it's less than ten. Understanding air pockets.
-                        </p>
-                    </article>
-
-                    {/* Article Card 3 */}
-                    <article className="ios-glass p-6 flex flex-col items-start group hover:bg-slate-800/80 transition-colors">
-                        <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                            <span className="px-2 py-1 rounded-full bg-teal-500/10 text-teal-200">Sounds</span>
-                            <span>Coming Soon</span>
-                        </div>
-                        <h3 className="text-xl font-bold mb-3 group-hover:text-teal-300 transition-colors">
-                            What is that "Bing-Bong" sound?
-                        </h3>
-                        <p className="text-sm text-slate-400 leading-relaxed mb-auto">
-                            Decoding the secret language of flight attendant chimes. It's usually just a phone call.
-                        </p>
-                    </article>
+                        return (
+                            <article key={idx} className={`ios-glass group hover:bg-slate-800/80 transition-colors ${isFeatured ? 'p-8 col-span-1 md:col-span-3 flex flex-col justify-center items-start' : 'p-6 flex flex-col items-start min-h-[250px]'}`}>
+                                <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
+                                    <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">{article.tag}</span>
+                                    <span>{isPublished ? article.date : 'Coming Soon'}</span>
+                                </div>
+                                {isPublished ? (
+                                    <Link href={linkHref} className="block w-full">
+                                        <h2 className={`${isFeatured ? 'text-2xl md:text-3xl' : 'text-xl'} font-bold mb-3 group-hover:text-blue-300 transition-colors`}>
+                                            {article.title}
+                                        </h2>
+                                    </Link>
+                                ) : (
+                                    <div className="block w-full">
+                                        <h2 className={`${isFeatured ? 'text-2xl md:text-3xl' : 'text-xl'} font-bold mb-3 group-hover:text-blue-300 transition-colors`}>
+                                            {article.title}
+                                        </h2>
+                                    </div>
+                                )}
+                                <p className={`${isFeatured ? 'text-base max-w-3xl mb-6' : 'text-sm mb-auto'} text-slate-400 leading-relaxed`}>
+                                    {article.excerpt}
+                                </p>
+                                {isPublished ? (
+                                    <Link href={linkHref} className={`inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-white transition-colors ${isFeatured ? 'text-base' : 'text-xs mt-4'}`}>
+                                        {isFeatured ? 'Read full article' : 'Read article'} <i className={`ph-bold ${isFeatured ? 'ph-arrow-right' : 'ph-caret-right'}`}></i>
+                                    </Link>
+                                ) : null}
+                            </article>
+                        );
+                    })}
                 </div>
 
                 <div className="mt-16 pt-8 border-t border-white/10 text-center">
@@ -105,6 +76,7 @@ function BlogListContent() {
                     </Link>
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

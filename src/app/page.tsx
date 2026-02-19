@@ -19,48 +19,47 @@ function HomeContent() {
       <div id="main-content" className="flex-1">
 
         {/* A) HERO */}
-        <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+        <section className="relative pt-40 pb-16 px-6 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-[#050a14] to-purple-900/10 pointer-events-none" />
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E")' }} />
 
-          <div className="max-w-[1040px] mx-auto relative z-10 text-center md:text-left">
-            <h1 className="text-4xl md:text-[52px] font-bold leading-[1.1] mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-300 max-w-3xl md:mx-0 mx-auto">
+          <div className="max-w-[72ch] mx-auto relative z-10 text-center md:text-left">
+            <h1 className="text-4xl md:text-[52px] font-bold leading-[1.1] mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-300 md:mx-0 mx-auto">
               Calm down mid-flight — even with zero Wi-Fi.
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed md:mx-0 mx-auto">
+            <p className="text-lg md:text-xl text-slate-400 mb-4 leading-relaxed md:mx-0 mx-auto">
               Simple tools for flight anxiety: guided breathing, quick focus tasks, calming sounds, and clear explanations — built for airplane mode.
             </p>
+            <p className="text-base md:text-lg text-slate-300 mb-2 leading-relaxed md:mx-0 mx-auto">
+              This is a calm, practical guide for nervous flyers. Start with the 2-minute reset, then read the explanations when you’re ready.
+            </p>
+            <p className="text-sm text-slate-500 mb-8 md:mx-0 mx-auto">
+              Read time: ~6 min
+            </p>
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-              <a href="#guide" className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-[#050a14]">
-                Read the guide
+              <a href="#reset" className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-[#050a14]">
+                Start with the 2-minute reset
               </a>
-              <a href="#download" className="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold rounded-full transition-all backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#050a14]">
-                Get the app
+              <Link href="/blog" className="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold rounded-full transition-all backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#050a14] text-center">
+                Browse articles
+              </Link>
+            </div>
+            <div className="mt-8 text-center md:text-left">
+              <a href="#download" className="text-sm text-blue-400 hover:text-white transition-colors underline-offset-4 hover:underline">
+                Or discover the CalmFlight app &rarr;
               </a>
             </div>
           </div>
         </section>
 
-        {/* B) EMPATHY & PROBLEM */}
-        <section className="py-20 px-6">
-          <div className="max-w-[1040px] mx-auto">
-            <div className="ios-glass p-8 md:p-12 rounded-[2rem]">
-              <h2 className="text-3xl font-bold mb-6">’Just relax’ isn’t a plan.</h2>
-              <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl">
-                When turbulence starts, your body can switch into alarm mode. And the usual coping tools often fail at the worst time — slow internet, no signal, nothing to load. CalmFlight is designed for the moment you need help right now.
-              </p>
-              <div className="inline-flex items-center px-4 py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-200 text-sm font-medium">
-                An anxious brain + an offline cabin = a tough combo.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* C) THE “2-MINUTE STRIP” */}
-        <section className="py-16 px-6 bg-white/[0.02] border-y border-white/5 overflow-hidden">
-          <div className="max-w-[1040px] mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-10">What you get in 2 minutes</h2>
-            <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-8 mb-6">
+        {/* B) START HERE: THE 2-MINUTE STRIP */}
+        <section id="reset" className="py-14 md:py-16 px-6 bg-white/[0.02] border-y border-white/5 overflow-hidden">
+          <div className="max-w-[72ch] mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">Start here: What you get in 2 minutes</h2>
+            <p className="text-base text-slate-400 mb-8 mx-auto">
+              A simple reset you can use mid-flight.
+            </p>
+            <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 mb-6">
               <div className="flex-1 ios-glass p-6 rounded-2xl flex items-center justify-center text-center font-semibold text-[17px] border border-white/10">
                 1. Tap Panic Button
               </div>
@@ -81,28 +80,42 @@ function HomeContent() {
           </div>
         </section>
 
-        {/* D) PHYSICS OF FLIGHT */}
-        <section className="py-24 px-6">
+        {/* TOC JUMP ROW */}
+        <section className="py-6 px-4 bg-black/40 border-b border-white/5 sticky top-16 z-40 backdrop-blur-md hidden sm:block">
           <div className="max-w-[1040px] mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 max-w-2xl leading-tight">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
+              <span className="text-slate-500 uppercase tracking-widest text-xs">Jump to:</span>
+              <a href="#turbulence" className="text-slate-300 hover:text-white transition-colors">Understanding turbulence</a>
+              <a href="#body" className="text-slate-300 hover:text-white transition-colors">Why your body reacts</a>
+              <a href="#moment" className="text-slate-300 hover:text-white transition-colors">What to do in the moment</a>
+              <a href="#fears" className="text-slate-300 hover:text-white transition-colors">Common fears</a>
+              <a href="#articles" className="text-slate-300 hover:text-white transition-colors">Latest articles</a>
+            </div>
+          </div>
+        </section>
+
+        {/* D) PHYSICS OF FLIGHT */}
+        <section className="py-14 md:py-16 px-6">
+          <div className="max-w-[72ch] md:max-w-[1040px] mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 max-w-2xl leading-tight text-center md:text-left mx-auto md:mx-0">
               Fear thrives on the unknown. Here’s what’s actually happening.
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="ios-glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all shadow-lg">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              <div className="ios-glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all shadow-lg">
                 <h3 className="text-xl font-bold mb-3">It feels like falling</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed text-sm">
                   You’re usually feeling a quick change in vertical airflow, not a ‘drop.’
                 </p>
               </div>
-              <div className="ios-glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all shadow-lg">
+              <div className="ios-glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Wings bending looks scary</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed text-sm">
                   That flexibility is by design; it helps absorb forces.
                 </p>
               </div>
-              <div className="ios-glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all shadow-lg">
+              <div className="ios-glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all shadow-lg">
                 <h3 className="text-xl font-bold mb-3">Turbulence = danger</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed text-sm">
                   Turbulence is uncomfortable, but aircraft are engineered and pilots plan for it.
                 </p>
               </div>
@@ -110,121 +123,79 @@ function HomeContent() {
           </div>
         </section>
 
-        {/* TOC JUMP ROW */}
-        <section className="py-6 px-4 bg-black/40 border-b border-white/5 sticky top-16 z-40 backdrop-blur-md hidden sm:block">
-          <div className="max-w-[1040px] mx-auto">
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
-              <span className="text-slate-500 uppercase tracking-widest text-xs">Jump to:</span>
-              <a href="#guide" className="text-slate-300 hover:text-white transition-colors">The Body</a>
-              <a href="#turbulence" className="text-slate-300 hover:text-white transition-colors">Turbulence</a>
-              <a href="#moment" className="text-slate-300 hover:text-white transition-colors">In the Moment</a>
-              <a href="#fears" className="text-slate-300 hover:text-white transition-colors">Common Fears</a>
-              <a href="#articles" className="text-slate-300 hover:text-white transition-colors">Articles</a>
-            </div>
-          </div>
-        </section>
-
         {/* E) WHY THIS WORKS (EXPANDED GUIDE) */}
-        <section id="guide" className="py-14 px-4 bg-gradient-to-b from-transparent to-white/[0.02]">
-          <div className="max-w-[72ch] mx-auto text-slate-300 leading-relaxed space-y-10 text-base">
+        <section id="guide" className="py-14 md:py-16 px-4 bg-gradient-to-b from-transparent to-white/[0.02]">
+          <div className="max-w-[72ch] mx-auto text-slate-300 leading-relaxed text-base space-y-12">
 
-            <div className="border-b border-white/10 pb-8">
-              <h2 className="text-2xl font-bold mb-4 text-white tracking-tight">Why a focus task can calm the spiral.</h2>
-              <p className="mb-4">You can’t force anxiety off with willpower — but you can redirect attention. Short, demanding tasks (like quick mental math) use the same ‘mental bandwidth’ that anxious spirals rely on. For many people, that shift reduces intensity and helps the body settle.</p>
+            <div className="border-b border-white/10 pb-10 space-y-4">
+              <h2 className="text-2xl font-bold mb-0 text-white tracking-tight">Why a focus task can calm the spiral.</h2>
+              <p className="mb-0">You can’t force anxiety off with willpower — but you can redirect attention. Short, demanding tasks (like quick mental math) use the same ‘mental bandwidth’ that anxious spirals rely on. For many people, that shift reduces intensity and helps the body settle.</p>
               <div className="inline-flex items-center px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-200 text-sm font-medium">
                 Breathe first, then switch to focus.
               </div>
             </div>
 
-            <div id="body">
-              <h3 className="text-xl font-bold mb-3 text-white">The Anatomy of a Panic Spiral</h3>
-              <p className="mb-4">Flight anxiety rarely begins exactly at 35,000 feet. Instead, it often starts days before the flight, accumulating through packing, navigating the airport, waiting at the gate, and finally boarding the aircraft. By the time you sit in your seat and hear the cabin doors close, your baseline stress level is already elevated. You are essentially pre-loaded with adrenaline.</p>
-              <p className="mb-4">Because of this heightened state, your amygdala—the brain’s threat detection center—is on high alert. It is scanning the environment for danger. When a normal flight event occurs, such as a change in engine pitch during climb or a bump of turbulence, your amygdala interprets it as an extreme threat. This triggers a cascade of physiological responses: a racing heart, shallow breathing, sweating, and an overwhelming desire to escape. This is the spiral.</p>
+            <div id="body" className="space-y-4">
+              <h3 className="text-xl font-bold mb-0 text-white">The Anatomy of a Panic Spiral</h3>
+              <p className="mb-0">Flight anxiety rarely begins exactly at 35,000 feet. Instead, it often starts days before the flight, accumulating through packing, navigating the airport, waiting at the gate, and finally boarding the aircraft. By the time you sit in your seat and hear the cabin doors close, your baseline stress level is already elevated. You are essentially pre-loaded with adrenaline.</p>
+              <p className="mb-0">Because of this heightened state, your amygdala—the brain’s threat detection center—is on high alert. It is scanning the environment for danger. When a normal flight event occurs, such as a change in engine pitch during climb or a bump of turbulence, your amygdala interprets it as an extreme threat. This triggers a cascade of physiological responses: a racing heart, shallow breathing, sweating, and an overwhelming desire to escape. This is the spiral.</p>
             </div>
 
             {/* Subtle Tool Insert 1 */}
-            <div className="my-8 p-5 bg-white/[0.03] border border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 border-l-4 border-l-blue-500 shadow-xl">
+            <div className="p-5 bg-white/[0.03] border border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 border-l-4 border-l-blue-500 shadow-xl">
               <div className="flex-1">
                 <h4 className="font-bold text-white text-sm mb-1">Tool Insert: Quick Focus</h4>
                 <p className="text-sm text-slate-400 mb-2">Engage your working memory with rapid mental math. This forces your brain out of the "what if" spiral by making you calculate.</p>
-                <a href="#download" className="text-xs text-blue-400 hover:text-white font-semibold transition-colors">Included in CalmFlight →</a>
+                <a href="#download" className="text-xs text-blue-400 hover:text-white font-semibold transition-colors">Included in CalmFlight &rarr;</a>
               </div>
             </div>
 
-            <div>
-              <h3 className="text-xl font-bold mb-3 text-white">Why "Just Relax" Backfires</h3>
-              <p className="mb-4">One of the most frustrating things a nervous flyer can hear is "just relax" or "there is nothing to worry about." While well-intentioned, these statements invalidate your legitimate physiological experience. Worse, trying to force yourself to relax often produces the opposite effect. It creates a secondary layer of anxiety: you become anxious about the fact that you cannot stop being anxious.</p>
-              <p className="mb-4">The key is not to fight the anxiety directly, but to accept its presence while gently shifting your brain's processing power. Think of your brain like a computer. Anxious thoughts act like a background program consuming 90% of your CPU. You cannot simply command the program to stop. Instead, you must open a new, demanding application that forces the computer to reallocate resources. This is where active cognitive tasks come into play.</p>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold mb-0 text-white">Why "Just Relax" Backfires</h3>
+              <p className="mb-0">One of the most frustrating things a nervous flyer can hear is "just relax" or "there is nothing to worry about." While well-intentioned, these statements invalidate your legitimate physiological experience. Worse, trying to force yourself to relax often produces the opposite effect. It creates a secondary layer of anxiety: you become anxious about the fact that you cannot stop being anxious.</p>
+              <p className="mb-0">The key is not to fight the anxiety directly, but to accept its presence while gently shifting your brain's processing power. Think of your brain like a computer. Anxious thoughts act like a background program consuming 90% of your CPU. You cannot simply command the program to stop. Instead, you must open a new, demanding application that forces the computer to reallocate resources. This is where active cognitive tasks come into play.</p>
             </div>
 
-            <div>
-              <h3 className="text-xl font-bold mb-3 text-white">The Biology of the Fight-or-Flight Response</h3>
-              <p className="mb-4">Understand that your body is having an absolutely perfect, healthy reaction—just to the wrong stimulus. The fight-or-flight response evolved to keep us alive when facing immediate physical danger, like a predator. It pumps adrenaline to our muscles, quickens our breathing to take in more oxygen, and dilates our pupils. It is preparing you to run or fight.</p>
-              <p className="mb-4">Sitting strapped into a narrow seat at cruising altitude, you can do neither. The physical energy has nowhere to go. This mismatch between your body's preparation and your physical reality is deeply uncomfortable. However, nothing is actually "wrong" with your body; it is functioning exactly as millions of years of evolution designed it to.</p>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold mb-0 text-white">The Biology of the Fight-or-Flight Response</h3>
+              <p className="mb-0">Understand that your body is having an absolutely perfect, healthy reaction—just to the wrong stimulus. The fight-or-flight response evolved to keep us alive when facing immediate physical danger, like a predator. It pumps adrenaline to our muscles, quickens our breathing to take in more oxygen, and dilates our pupils. It is preparing you to run or fight.</p>
+              <p className="mb-0">Sitting strapped into a narrow seat at cruising altitude, you can do neither. The physical energy has nowhere to go. This mismatch between your body's preparation and your physical reality is deeply uncomfortable. However, nothing is actually "wrong" with your body; it is functioning exactly as millions of years of evolution designed it to.</p>
             </div>
 
-            <div>
-              <h3 className="text-xl font-bold mb-3 text-white">The Biological Override: Guided Breathing</h3>
-              <p className="mb-4">While you cannot directly control your heart rate or adrenaline production, you do have manual control over your breathing. Breathing is the only part of the autonomic nervous system that you can consciously pilot. By intentionally taking slow, deep breaths—specifically emphasizing a longer exhale—you send a direct, mechanical signal to your vagus nerve.</p>
-              <p className="mb-4">The vagus nerve activates the parasympathetic nervous system, commonly known as the "rest and digest" system. A long exhale physically lowers your heart rate. This is not a psychological trick; it is biology. However, when panic strikes, remembering how to breathe correctly, or maintaining the rhythm, is exceptionally difficult. This is why having a visual and tactile guide (like haptic feedback) is crucial for interrupting the cycle.</p>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold mb-0 text-white">The Biological Override: Guided Breathing</h3>
+              <p className="mb-0">While you cannot directly control your heart rate or adrenaline production, you do have manual control over your breathing. Breathing is the only part of the autonomic nervous system that you can consciously pilot. By intentionally taking slow, deep breaths—specifically emphasizing a longer exhale—you send a direct, mechanical signal to your vagus nerve.</p>
+              <p className="mb-0">The vagus nerve activates the parasympathetic nervous system, commonly known as the "rest and digest" system. A long exhale physically lowers your heart rate. This is not a psychological trick; it is biology. However, when panic strikes, remembering how to breathe correctly, or maintaining the rhythm, is exceptionally difficult. This is why having a visual and tactile guide (like haptic feedback) is crucial for interrupting the cycle.</p>
             </div>
 
             {/* Subtle Tool Insert 2 */}
-            <div className="my-8 p-5 bg-white/[0.03] border border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 border-l-4 border-l-red-500 shadow-xl">
+            <div className="p-5 bg-white/[0.03] border border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 border-l-4 border-l-red-500 shadow-xl">
               <div className="flex-1">
                 <h4 className="font-bold text-white text-sm mb-1">Tool Insert: Panic Button</h4>
                 <p className="text-sm text-slate-400 mb-2">A giant, accessible button that immediately launches a guided grounding exercise—designed for when you can barely think straight.</p>
-                <a href="#download" className="text-xs text-red-400 hover:text-white font-semibold transition-colors">Included in CalmFlight →</a>
+                <a href="#download" className="text-xs text-red-400 hover:text-white font-semibold transition-colors">Included in CalmFlight &rarr;</a>
               </div>
             </div>
 
-            <div id="turbulence">
-              <h3 className="text-xl font-bold mb-3 text-white">Demystifying Turbulence: The Jell-O Analogy</h3>
-              <p className="mb-4">Turbulence is frequently the primary trigger for flight anxiety. When the plane shakes, it intuitively feels like the aircraft is falling out of the sky or losing control. In reality, turbulence is simply roughly mixing air—much like navigating a boat over choppy waves. The plane is not dropping into a vacuum; it is interacting with changes in air currents, temperature, and pressure.</p>
-              <p className="mb-4">A helpful visualization is the "Jell-O analogy." Imagine a toy airplane suspended in the center of a bowl of Jell-O. If you tap the side of the bowl, the Jell-O shakes, and the toy airplane shakes with it. However, the plane cannot fall to the bottom. The Jell-O completely surrounds it, supporting it from all angles. Atmosphere acts mathematically like a fluid. At high speeds, the air holds the plane just as securely as the Jell-O holds the toy. It may be bumpy, but you are completely supported.</p>
+            <div id="turbulence" className="space-y-4">
+              <h3 className="text-xl font-bold mb-0 text-white">Demystifying Turbulence: The Jell-O Analogy</h3>
+              <p className="mb-0">Turbulence is frequently the primary trigger for flight anxiety. When the plane shakes, it intuitively feels like the aircraft is falling out of the sky or losing control. In reality, turbulence is simply roughly mixing air—much like navigating a boat over choppy waves. The plane is not dropping into a vacuum; it is interacting with changes in air currents, temperature, and pressure.</p>
+              <p className="mb-0">A helpful visualization is the "Jell-O analogy." Imagine a toy airplane suspended in the center of a bowl of Jell-O. If you tap the side of the bowl, the Jell-O shakes, and the toy airplane shakes with it. However, the plane cannot fall to the bottom. The Jell-O completely surrounds it, supporting it from all angles. Atmosphere acts mathematically like a fluid. At high speeds, the air holds the plane just as securely as the Jell-O holds the toy. It may be bumpy, but you are completely supported.</p>
             </div>
 
-            <div id="moment">
-              <h3 className="text-xl font-bold mb-3 text-white">Preparation vs. Improvisation</h3>
-              <p className="mb-4">Managing flight anxiety is not about achieving perfect zen or eliminating fear entirely. It is about equipping yourself with reliable, science-based tools for when the fear inevitably arises. Trying to suddenly invent a coping mechanism while surrounded by strangers at 35,000 feet, without an internet connection, is setting yourself up for failure.</p>
-              <p className="mb-4">By understanding the physiological mechanisms of panic, recognizing the safety of modern aviation, and having immediate, offline tools ready the moment you sit down, you transform fear from an overwhelming tidal wave into a manageable wave you can safely ride out.</p>
+            <div id="moment" className="space-y-4">
+              <h3 className="text-xl font-bold mb-0 text-white">Preparation vs. Improvisation</h3>
+              <p className="mb-0">Managing flight anxiety is not about achieving perfect zen or eliminating fear entirely. It is about equipping yourself with reliable, science-based tools for when the fear inevitably arises. Trying to suddenly invent a coping mechanism while surrounded by strangers at 35,000 feet, without an internet connection, is setting yourself up for failure.</p>
+              <p className="mb-0">By understanding the physiological mechanisms of panic, recognizing the safety of modern aviation, and having immediate, offline tools ready the moment you sit down, you transform fear from an overwhelming tidal wave into a manageable wave you can safely ride out.</p>
             </div>
 
-          </div>
-        </section>
-
-        {/* LATEST ARTICLES (Moved Mid-Page) */}
-        <section id="articles" className="py-16 px-4 bg-white/[0.02] border-y border-white/5">
-          <div className="max-w-[1040px] mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-blue-300/70 mb-2">Knowledge is Power</p>
-                <h2 className="text-2xl font-bold">Latest Articles</h2>
-              </div>
-              <Link href="/blog" className="text-sm text-blue-400 hover:text-white transition-colors font-medium flex items-center gap-2">
-                View all articles <i className="ph-bold ph-arrow-right"></i>
-              </Link>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {articles.map((article, idx) => (
-                <Link key={idx} href={article.status === 'published' ? `/blog/${article.slug}` : '/blog'} className={`ios-glass p-5 rounded-2xl border border-white/10 transition-all flex flex-col group h-full ${article.status === 'published' ? 'hover:border-white/30' : 'opacity-80'}`}>
-                  <div className="text-xs text-slate-500 mb-2">{article.date}</div>
-                  <h3 className={`font-bold text-base mb-2 leading-snug ${article.status === 'published' ? 'group-hover:text-blue-300 transition-colors' : ''}`}>{article.title}</h3>
-                  <p className="text-xs text-slate-400 line-clamp-3 mb-4 flex-1">{article.excerpt}</p>
-                  <div className={`text-xs font-semibold flex items-center gap-1 ${article.status === 'published' ? 'text-blue-400' : 'text-slate-500'}`}>
-                    {article.status === 'published' ? 'Read' : 'Coming Soon'} {article.status === 'published' && <i className="ph-bold ph-caret-right"></i>}
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
         </section>
 
         {/* COMMON FEARS FAQ (Semantic blocks) */}
-        <section id="fears" className="py-16 px-4 bg-black/20">
+        <section id="fears" className="py-14 md:py-16 px-4 bg-black/20">
           <div className="max-w-[72ch] mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Common Fears Explained</h2>
+            <h2 className="text-2xl font-bold mb-8 text-center md:text-left">Common Fears Explained</h2>
 
             <div className="space-y-3">
               <details className="ios-glass p-5 rounded-xl group cursor-pointer border border-white/10 [&_summary::-webkit-details-marker]:hidden">
@@ -266,6 +237,37 @@ function HomeContent() {
                   Takeoff requires a massive amount of thrust to propel a heavy aircraft to lift-off speed. You are feeling the raw acceleration pushing you back into your seat. Shortly after liftoff, the nose pitches up steeply, which can trigger a falling sensation in your inner ear. Then, pilots often reduce engine power slightly for noise abatement requirements near populated areas; this sudden reduction in noise and acceleration can falsely make your brain think the plane is stalling or dropping. In reality, it is a completely normal, controlled procedure.
                 </div>
               </details>
+            </div>
+          </div>
+        </section>
+
+        {/* LATEST ARTICLES (Moved Mid-Page) */}
+        <section id="articles" className="py-14 md:py-16 px-4 bg-white/[0.02] border-y border-white/5">
+          <div className="max-w-[1040px] mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-blue-300/70 mb-2">Knowledge is Power</p>
+                <h2 className="text-2xl font-bold">Latest Articles</h2>
+              </div>
+              <Link href="/blog" className="text-sm text-blue-400 hover:text-white transition-colors font-medium flex items-center gap-2">
+                View all articles <i className="ph-bold ph-arrow-right"></i>
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {articles.slice(0, 6).map((article, idx) => (
+                <Link key={idx} href={article.status === 'published' ? `/blog/${article.slug}` : '/blog'} className={`ios-glass p-6 min-h-[160px] rounded-2xl border border-white/10 transition-all flex flex-col group h-full ${article.status === 'published' ? 'hover:border-white/30 hover:bg-slate-800/80' : 'opacity-80'}`}>
+                  <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                    <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">{article.tag}</span>
+                    <span>{article.status === 'published' ? article.date : 'Coming Soon'}</span>
+                  </div>
+                  <h3 className={`font-bold text-lg mb-2 leading-snug ${article.status === 'published' ? 'group-hover:text-blue-300 transition-colors' : ''}`}>{article.title}</h3>
+                  <p className="text-sm text-slate-400 line-clamp-2 mb-4 flex-1">{article.excerpt}</p>
+                  <div className={`text-xs font-semibold flex items-center gap-1 ${article.status === 'published' ? 'text-blue-400 group-hover:text-white transition-colors' : 'text-slate-500'}`}>
+                    {article.status === 'published' ? 'Read article' : ''} {article.status === 'published' && <i className="ph-bold ph-caret-right"></i>}
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
