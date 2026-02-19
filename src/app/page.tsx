@@ -47,8 +47,8 @@ function HomeContent() {
             </div>
 
             <div className="w-full max-w-md mt-8">
-              {/* App Store Button Replacement */}
-              <div className="flex flex-col sm:flex-row gap-4 items-start">
+              {/* App Store Button Replacement - HIDDEN PER USER REQUEST (Not ready) */}
+              {/* <div className="flex flex-col sm:flex-row gap-4 items-start">
                 <a
                   href="#APP_STORE_LINK_PLACEHOLDER"
                   className="group relative overflow-hidden rounded-xl transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-blue-500/20"
@@ -61,7 +61,7 @@ function HomeContent() {
                     style={{ filter: 'invert(1)' }}
                   />
                 </a>
-              </div>
+              </div> */}
 
               <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <p className="text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
