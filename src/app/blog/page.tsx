@@ -12,7 +12,7 @@ function BlogListContent() {
             <Navbar />
             <main className="pt-32 px-6 max-w-5xl mx-auto pb-20">
                 <div className="text-center mb-16">
-                    <p className="text-xs uppercase tracking-[0.3em] text-blue-300/70 mb-4">Flight Calm Journal</p>
+                    <p className="text-xs uppercase tracking-[0.3em] text-blue-300/70 mb-4">New blog entries weekly</p>
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">Understanding conquers fear.</h1>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
                         Simple, science-backed explanations of how flying works, why your body reacts, and how to stay calm.
@@ -24,7 +24,7 @@ function BlogListContent() {
                     <article className="ios-glass p-8 col-span-1 md:col-span-3 flex flex-col justify-center items-start group cursor-pointer hover:bg-slate-800/80 transition-colors">
                         <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
                             <span className="px-2 py-1 rounded-full bg-purple-500/10 text-purple-200">Anxiety Relief</span>
-                            <span>Feb 19, 2026</span>
+                            <span>4 min read</span>
                         </div>
                         <Link href="/blog/stop-panic-attack-no-wifi" className="block">
                             <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-purple-300 transition-colors">
@@ -44,7 +44,7 @@ function BlogListContent() {
                     <article className="ios-glass p-6 flex flex-col items-start group hover:bg-slate-800/80 transition-colors">
                         <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
                             <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
-                            <span>Feb 12, 2026</span>
+                            <span>3 min read</span>
                         </div>
                         <Link href="/blog/oxygen-mask" className="block">
                             <h3 className="text-xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
