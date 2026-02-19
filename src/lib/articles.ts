@@ -26,10 +26,10 @@ export const articles: Article[] = [
     },
     {
         title: 'Why the plane drops during turbulence',
-        excerpt: 'It feels like falling hundreds of feet, but usually, it\'s often much less than it feels. Understanding air pockets.',
+        excerpt: 'It can feel like a big drop, but it\'s often much smaller than it feels. Understanding air pockets.',
         date: 'Coming Soon',
         tag: 'Turbulence',
-        slug: 'turbulence',
+        slug: '',
         status: 'coming_soon'
     },
     {
@@ -37,7 +37,31 @@ export const articles: Article[] = [
         excerpt: 'Decoding the secret language of flight attendant chimes. It\'s usually just a simple phone call.',
         date: 'Coming Soon',
         tag: 'Sounds',
-        slug: 'sounds',
+        slug: '',
+        status: 'coming_soon'
+    },
+    {
+        title: 'What happens during a go-around?',
+        excerpt: 'When an airplane approaches the runway but suddenly climbs back up, it\'s actually a standard safety procedure, not an emergency.',
+        date: 'Coming Soon',
+        tag: 'Safety Basics',
+        slug: '',
+        status: 'coming_soon'
+    },
+    {
+        title: 'The biology of takeoff acceleration',
+        excerpt: 'Why the steep climb and engine noise reduction immediately after takeoff can trigger a falling sensation in your inner ear.',
+        date: 'Coming Soon',
+        tag: 'Body Response',
+        slug: '',
+        status: 'coming_soon'
+    },
+    {
+        title: 'Can a plane fly with one engine?',
+        excerpt: 'Modern jets are rigorously tested to fly safely to an alternate airport even in the extremely rare event of an engine shutdown.',
+        date: 'Coming Soon',
+        tag: 'Safety Basics',
+        slug: '',
         status: 'coming_soon'
     }
 ];

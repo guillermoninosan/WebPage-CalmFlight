@@ -204,7 +204,7 @@ function HomeContent() {
                   <span className="text-slate-500 group-open:rotate-45 transition-transform duration-300 text-xl leading-none">+</span>
                 </summary>
                 <div className="pt-3 text-slate-400 leading-relaxed text-sm">
-                  Modern commercial jets are designed to fly completely safely even if an engine fails. In fact, twin-engine planes are certified (under ETOPS regulations) to fly for hours on a single engine to reach an alternate airport. Furthermore, even if all engines were to stop—an incredibly rare event—a plane does not drop out of the sky. It becomes a highly efficient glider. From a typical cruising altitude, a commercial jet can glide for 60 to 80 miles, giving the pilots ample time to safely land the aircraft.
+                  Modern commercial jets are designed to fly safely even if an engine fails. In fact, twin-engine planes are certified (under ETOPS regulations) to fly for hours on a single engine to reach an alternate airport. Furthermore, even if all engines were to stop—an incredibly rare event—a plane does not drop out of the sky. It becomes a highly efficient glider. From a typical cruising altitude, a commercial jet can glide a long distance, giving the pilots ample time to safely land the aircraft.
                 </div>
               </details>
 
@@ -214,7 +214,7 @@ function HomeContent() {
                   <span className="text-slate-500 group-open:rotate-45 transition-transform duration-300 text-xl leading-none">+</span>
                 </summary>
                 <div className="pt-3 text-slate-400 leading-relaxed text-sm">
-                  No. Modern aircraft are engineered to withstand forces far beyond any naturally occurring turbulence. The wings are highly flexible, capable of bending several feet upward and downward to absorb the impact of rough air without snapping. While severe turbulence can certainly be terrifying and uncomfortable, it is not a structural threat to the airplane. The primary danger of turbulence is to passengers who are not wearing their seatbelts and may be tossed around the cabin.
+                  No. Modern aircraft are engineered to withstand forces far beyond any naturally occurring turbulence. The wings are designed to flex significantly upward and downward to absorb the impact of rough air without snapping. While severe turbulence can certainly be terrifying and uncomfortable, it is not a structural threat to the airplane. The primary danger of turbulence is to passengers who are not wearing their seatbelts and may be tossed around the cabin.
                 </div>
               </details>
 
@@ -224,7 +224,7 @@ function HomeContent() {
                   <span className="text-slate-500 group-open:rotate-45 transition-transform duration-300 text-xl leading-none">+</span>
                 </summary>
                 <div className="pt-3 text-slate-400 leading-relaxed text-sm">
-                  It is physically impossible to open a commercial airplane door during flight. Airplane cabins are pressurized to keep the air breathable at high altitudes. Because the pressure inside the cabin is much higher than the thin air outside, the doors—which open inward like a plug—are pushed against the airframe with thousands of pounds of force. Even the strongest person on earth could not pull the door open against that pressure difference.
+                  Airplane doors are designed so they cannot be opened in normal flight conditions due to pressure and latch design. Airplane cabins are pressurized to keep the air breathable at high altitudes. Because the pressure inside the cabin is much higher than the thin air outside, the doors—which open inward like a plug—are held tightly against the airframe with immense force. Even the strongest person on earth could not pull the door open against that pressure difference.
                 </div>
               </details>
 
