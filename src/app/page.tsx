@@ -29,7 +29,10 @@ function HomeContent() {
       <header className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            {/* Launch Badge Removed */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase mb-8 animate-pulse">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
+              {t('nav_date') === "March 1st" ? "Launching March 1st" : `Lanzamiento ${t('nav_date')}`}
+            </div>
 
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight" data-animate="headline">
               <span>{t('headline_1')}</span> <br />
@@ -47,68 +50,80 @@ function HomeContent() {
             </div>
 
             <div className="w-full max-w-md mt-8">
-              {/* App Store Button Replacement - HIDDEN PER USER REQUEST (Not ready) */}
-              {/* <div className="flex flex-col sm:flex-row gap-4 items-start">
-                <a
-                  href="#APP_STORE_LINK_PLACEHOLDER"
-                  className="group relative overflow-hidden rounded-xl transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-blue-500/20"
-                >
-                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <img
-                    src={`/app_store_${language === 'en' || language === 'es' || language === 'fr' || language === 'de' ? language : 'en'}.png`}
-                    alt="Download on the App Store"
-                    className="h-[52px] w-auto invert brightness-0 grayscale opacity-90 group-hover:opacity-100 transition-all rounded-lg"
-                    style={{ filter: 'invert(1)' }}
+              <form name="launch-list" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="flex flex-col sm:flex-row gap-4 items-start">
+                <input type="hidden" name="form-name" value="launch-list" />
+                <input type="hidden" name="bot-field" />
+
+                <div className="relative w-full sm:w-auto flex-1">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i className="ph-bold ph-envelope-simple text-slate-500"></i>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t('email_placeholder')}
+                    required
+                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
                   />
-                </a>
-              </div> */}
+                </div>
 
-              <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <p className="text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
-                  <i className="ph-fill ph-check-circle text-blue-400"></i>
-                  <span>Includes pre-flight checklist</span>
-                </p>
-                <a href="#calm-cards" className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
-                  Preview free Calm Cards <i className="ph-bold ph-arrow-down"></i>
-                </a>
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2"
+                >
+                  <span>{t('notify_btn')}</span>
+                  <i className="ph-bold ph-bell"></i>
+                </button>
+              </form>
+
+              <div className="mt-4 flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
+                <p className="text-[10px] text-blue-300 font-medium tracking-wide uppercase">{t('email_disclaimer')}</p>
               </div>
-            </div>
-
-            <div className="mt-8 flex flex-col items-start gap-3">
-              <div className="text-sm text-gray-500 flex items-center gap-2">
-                <i className="ph-fill ph-download-simple text-blue-400"></i>
-                <span className="text-white font-bold tracking-wide">{t('price_free')}</span>
-                <span className="text-slate-500">•</span>
-                <span className="text-slate-400 text-xs">{t('iap_badge')}</span>
-              </div>
-
-              <div
-                className="text-[11px] text-teal-300 font-medium bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <i className="ph-bold ph-infinity"></i>
-                <span>{t('premium_offer')}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex justify-center scale-95 md:scale-100">
-            <div
-              className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
-
-              <video
-                id="app-video"
-                poster={currentPoster}
-                autoPlay loop muted playsInline
-                key={language}
-                className="w-full h-full object-cover"
-              >
-                <source src="/app_demo.mp4" type="video/mp4" />
-                <img src={currentPoster} alt="CalmFlight App Demo" className="w-full h-full object-cover" />
-              </video>
-            </div>
+              <i className="ph-fill ph-check-circle text-blue-400"></i>
+              <span>Includes pre-flight checklist</span>
+            </p>
+            <a href="#calm-cards" className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
+              Preview free Calm Cards <i className="ph-bold ph-arrow-down"></i>
+            </a>
           </div>
         </div>
-      </header>
+
+        <div className="mt-8 flex flex-col items-start gap-3">
+          <div className="text-sm text-gray-500 flex items-center gap-2">
+            <i className="ph-fill ph-download-simple text-blue-400"></i>
+            <span className="text-white font-bold tracking-wide">{t('price_free')}</span>
+            <span className="text-slate-500">•</span>
+            <span className="text-slate-400 text-xs">{t('iap_badge')}</span>
+          </div>
+
+          <div
+            className="text-[11px] text-teal-300 font-medium bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+            <i className="ph-bold ph-infinity"></i>
+            <span>{t('premium_offer')}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative flex justify-center scale-95 md:scale-100">
+        <div
+          className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
+
+          <video
+            id="app-video"
+            poster={currentPoster}
+            autoPlay loop muted playsInline
+            key={language}
+            className="w-full h-full object-cover"
+          >
+            <source src="/app_demo.mp4" type="video/mp4" />
+            <img src={currentPoster} alt="CalmFlight App Demo" className="w-full h-full object-cover" />
+          </video>
+        </div>
+      </div>
+    </div >
+    </header >
 
       <section className="max-w-5xl mx-auto px-6 py-12">
         <h2 className="text-2xl font-bold mb-8">{t('features_title')}</h2>

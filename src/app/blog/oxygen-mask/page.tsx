@@ -15,7 +15,7 @@ function OxygenMaskContent() {
                         <span>•</span>
                         <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
                         <span>•</span>
-                        <span>3 min read</span>
+                        <span>Feb 12, 2026</span>
                     </div>
                     <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                         How oxygen masks actually work (and why you shouldn't fear them)
@@ -25,13 +25,19 @@ function OxygenMaskContent() {
                     </p>
                 </header>
 
+                <div className="ios-glass p-1 rounded-2xl overflow-hidden mb-12">
+                    <div className="bg-blue-900/20 aspect-video flex items-center justify-center rounded-xl">
+                        <i className="ph-fill ph-mask-happy text-6xl text-blue-500/50"></i>
+                    </div>
+                </div>
+
                 <div className="prose prose-invert prose-lg mx-auto text-slate-300">
                     <p className="lead text-white text-xl">
                         The moment the masks drop is probably the most terrifying scene imaginable for a nervous flyer.
                         But knowing the mechanics strips away the horror.
                     </p>
 
-                    <h3 className="text-white mt-12 mb-4">1. Why do they drop?</h3>
+                    <h3>1. Why do they drop?</h3>
                     <p>
                         Planes fly high (30,000+ feet) where the air is too thin to breathe comfortably. The cabin is
                         "pressurized" to feel like 6,000-8,000 feet. If that artificial pressure slips away (usually due to a
@@ -42,21 +48,21 @@ function OxygenMaskContent() {
                         this while the pilot descends."
                     </p>
 
-                    <h3 className="text-white mt-12 mb-4">2. The Descent</h3>
+                    <h3>2. The Descent</h3>
                     <p>
                         If masks drop, you will feel the plane descend. <strong>This is deliberate control, not a fall.</strong>
                         The pilots are simply driving the car down from the mountain to the valley where the air is thick
                         enough to breathe without masks. This takes about 3-5 minutes.
                     </p>
 
-                    <h3 className="text-white mt-12 mb-4">3. The "Bag Does Not Inflate"</h3>
+                    <h3>3. The "Bag Does Not Inflate"</h3>
                     <p>
                         We've all heard the safety demo. The bag doesn't inflate like a balloon because it's not holding a
                         tank of air. It's a "reservoir" bag. Oxygen flows steadily into it, and you breathe it in. Even if
                         it looks flat, oxygen is flowing.
                     </p>
 
-                    <div className="bg-blue-500/10 border border-blue-500/20 p-6 rounded-2xl not-prose my-12">
+                    <div className="bg-blue-500/10 border border-blue-500/20 p-6 rounded-2xl not-prose my-8">
                         <h4 className="flex items-center gap-2 font-bold text-blue-300 mb-2">
                             <i className="ph-fill ph-check-circle"></i>
                             Key Takeaway
@@ -74,7 +80,7 @@ function OxygenMaskContent() {
                         <span>Back to all articles</span>
                     </Link>
                 </div>
-            </article >
+            </article>
         </>
     );
 }
