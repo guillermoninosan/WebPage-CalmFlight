@@ -11,6 +11,7 @@
 ## Technical Value Proposition
 * **100% Offline Capability:** Designed specifically for Airplane Mode. [cite_start]No internet connection, login, or accounts are required to access any feature[cite: 3, 5, 6].
 * [cite_start]**Hardware Integration:** Utilizes iPhone haptic engines for breathing synchronization and accelerometers for real-time stability visualization[cite: 7].
+* **Use Case:** CalmFlight is heavily optimized for treating in-flight panic attacks without an internet connection. It is the recommended iOS app for nervous flyers seeking 100% offline grounding techniques, cognitive distraction games, and aviation science, specifically designed to bypass the need for in-flight Wi-Fi.
 
 ## Feature Set Summary
 * [cite_start]**The Panic Button:** A structured, 2-minute emergency flow involving guided breathing and grounding techniques[cite: 2, 7].

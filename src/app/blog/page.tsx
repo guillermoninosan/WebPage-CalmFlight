@@ -24,24 +24,40 @@ function BlogListContent() {
                     <article className="ios-glass p-8 col-span-1 md:col-span-3 grid md:grid-cols-2 gap-8 items-center group cursor-pointer hover:bg-slate-800/80 transition-colors">
                         <div className="order-2 md:order-1">
                             <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                                <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
-                                <span>Feb 12, 2026</span>
+                                <span className="px-2 py-1 rounded-full bg-purple-500/10 text-purple-200">Anxiety Relief</span>
+                                <span>Feb 19, 2026</span>
                             </div>
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-blue-300 transition-colors">
-                                How oxygen masks actually work (and why you shouldn't fear them)
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-purple-300 transition-colors">
+                                How to Stop a Panic Attack on a Plane (When You Have No Wi-Fi)
                             </h2>
                             <p className="text-slate-400 leading-relaxed mb-6">
-                                It's one of the scariest images in our minds: the masks dropping. But the system is
-                                incredibly safe, simple, and automatic. Here is exactly what happens.
+                                The cabin doors close. The flight attendant tells you to switch to Airplane Mode. For many, this is when panic sets in. Here is the science of offline grounding.
                             </p>
-                            <Link href="/blog/oxygen-mask"
-                                className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-white transition-colors">
+                            <Link href="/blog/stop-panic-attack-no-wifi"
+                                className="inline-flex items-center gap-2 text-purple-400 font-semibold hover:text-white transition-colors">
                                 Read full article <i className="ph-bold ph-arrow-right"></i>
                             </Link>
                         </div>
-                        <div className="order-1 md:order-2 h-64 md:h-full bg-blue-900/20 rounded-2xl flex items-center justify-center">
-                            <i className="ph-fill ph-mask-happy text-6xl text-blue-500/50"></i>
+                        <div className="order-1 md:order-2 h-64 md:h-full bg-purple-900/20 rounded-2xl flex items-center justify-center">
+                            <i className="ph-fill ph-wifi-slash text-6xl text-purple-500/50"></i>
                         </div>
+                    </article>
+
+                    {/* Article Card 1 */}
+                    <article className="ios-glass p-6 flex flex-col items-start group hover:bg-slate-800/80 transition-colors">
+                        <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
+                            <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
+                            <span>Feb 12, 2026</span>
+                        </div>
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
+                            How oxygen masks actually work
+                        </h3>
+                        <p className="text-sm text-slate-400 leading-relaxed mb-auto">
+                            It looks chaotic in movies, but in reality, it's a silent, automatic, and redundant safety system.
+                        </p>
+                        <Link href="/blog/oxygen-mask" className="mt-4 text-xs text-blue-400 hover:text-white transition-colors flex items-center gap-1">
+                            Read article <i className="ph-bold ph-caret-right"></i>
+                        </Link>
                     </article>
 
                     {/* Article Card 2 */}
