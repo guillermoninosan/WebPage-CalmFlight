@@ -26,10 +26,10 @@ export const articles: Article[] = [
     },
     {
         title: 'Why the plane drops during turbulence',
-        excerpt: 'It feels like falling hundreds of feet, but usually, it\'s less than ten. Understanding air pockets.',
+        excerpt: 'It feels like falling hundreds of feet, but usually, it\'s often much less than it feels. Understanding air pockets.',
         date: 'Coming Soon',
         tag: 'Turbulence',
-        slug: '#',
+        slug: 'turbulence',
         status: 'coming_soon'
     },
     {
@@ -37,7 +37,7 @@ export const articles: Article[] = [
         excerpt: 'Decoding the secret language of flight attendant chimes. It\'s usually just a simple phone call.',
         date: 'Coming Soon',
         tag: 'Sounds',
-        slug: '#',
+        slug: 'sounds',
         status: 'coming_soon'
     }
 ];

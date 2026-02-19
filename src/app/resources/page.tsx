@@ -50,6 +50,56 @@ export default function Resources() {
                             </div>
                         </section>
 
+                        <section className="mt-12">
+                            <h2 className="text-2xl font-bold mb-2">Recommended Gear <span className="text-slate-500 font-normal text-lg">(Optional)</span></h2>
+                            <p className="text-sm text-slate-400 mb-6">
+                                Physical tools can make a significant difference in sensory regulation. Product availability and models may change over time.<br />
+                                <span className="text-xs text-slate-500 italic mt-2 block">As an Amazon Associate I earn from qualifying purchases.</span>
+                            </p>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="ios-glass p-6 rounded-2xl border border-white/10">
+                                    <h3 className="text-lg font-bold mb-2">Noise-Canceling Headphones</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                        Essential for blocking out engine noise and the "bing-bong" chimes that can trigger a startle response.
+                                    </p>
+                                    <a href="#" className="text-sm font-semibold text-white hover:text-blue-400 transition-colors inline-flex items-center gap-1">
+                                        View options (paid link) <i className="ph-bold ph-arrow-up-right"></i>
+                                    </a>
+                                </div>
+
+                                <div className="ios-glass p-6 rounded-2xl border border-white/10">
+                                    <h3 className="text-lg font-bold mb-2">Contoured Eye Mask</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                        Removing visual stimuli can help lower your baseline stress level, especially during night flights.
+                                    </p>
+                                    <a href="#" className="text-sm font-semibold text-white hover:text-blue-400 transition-colors inline-flex items-center gap-1">
+                                        View options (paid link) <i className="ph-bold ph-arrow-up-right"></i>
+                                    </a>
+                                </div>
+
+                                <div className="ios-glass p-6 rounded-2xl border border-white/10">
+                                    <h3 className="text-lg font-bold mb-2">Tactile Grounding Item</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                        A simple worry stone, fidget ring, or stress ball gives physical nervous energy a place to go.
+                                    </p>
+                                    <a href="#" className="text-sm font-semibold text-white hover:text-blue-400 transition-colors inline-flex items-center gap-1">
+                                        View options (paid link) <i className="ph-bold ph-arrow-up-right"></i>
+                                    </a>
+                                </div>
+
+                                <div className="ios-glass p-6 rounded-2xl border border-white/10">
+                                    <h3 className="text-lg font-bold mb-2">Supportive Neck Pillow</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                        Physical comfort helps prevent the accumulation of tension in your shoulders and upper back.
+                                    </p>
+                                    <a href="#" className="text-sm font-semibold text-white hover:text-blue-400 transition-colors inline-flex items-center gap-1">
+                                        View options (paid link) <i className="ph-bold ph-arrow-up-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
                         <div className="mt-16 pb-20">
                             <a href="/" className="inline-flex items-center gap-2 text-blue-400 hover:text-white transition-colors font-medium">
                                 <i className="ph-bold ph-arrow-left"></i> Back to Home

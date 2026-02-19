@@ -46,7 +46,7 @@ function HomeContent() {
             </div>
             <div className="mt-8 text-center md:text-left">
               <a href="#download" className="text-sm text-blue-400 hover:text-white transition-colors underline-offset-4 hover:underline">
-                Or discover the CalmFlight app &rarr;
+                Get the offline tool &rarr;
               </a>
             </div>
           </div>
@@ -84,7 +84,7 @@ function HomeContent() {
         <section className="py-6 px-4 bg-black/40 border-b border-white/5 sticky top-16 z-40 backdrop-blur-md hidden sm:block">
           <div className="max-w-[1040px] mx-auto">
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
-              <span className="text-slate-500 uppercase tracking-widest text-xs">Jump to:</span>
+              <span className="text-slate-500 uppercase tracking-widest text-xs">On this page:</span>
               <a href="#turbulence" className="text-slate-300 hover:text-white transition-colors">Understanding turbulence</a>
               <a href="#body" className="text-slate-300 hover:text-white transition-colors">Why your body reacts</a>
               <a href="#moment" className="text-slate-300 hover:text-white transition-colors">What to do in the moment</a>
@@ -287,7 +287,7 @@ function HomeContent() {
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               <span className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-300 text-xs font-medium inline-flex items-center gap-1"><i className="ph-fill ph-check-circle"></i> Works offline</span>
               <span className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-300 text-xs font-medium inline-flex items-center gap-1"><i className="ph-fill ph-check-circle"></i> No account needed</span>
-              <span className="px-3 py-1 rounded-full bg-slate-800 border border-white/10 text-slate-400 text-xs font-medium inline-flex items-center gap-1"><i className="ph-bold ph-airplane-tilt"></i> Turbulence meter (v1.1)</span>
+              <span className="px-3 py-1 rounded-full bg-slate-800 border border-white/10 text-slate-400 text-xs font-medium inline-flex items-center gap-1"><i className="ph-bold ph-airplane-tilt"></i> Coming later: Turbulence Meter (v1.1)</span>
             </div>
           </div>
         </section>

@@ -19,8 +19,8 @@ export default function Contact() {
                             <p className="text-slate-400 mb-6">
                                 The best way to reach us is via email. We read every message.
                             </p>
-                            <a href="mailto:hello@calmflight.app" className="inline-flex items-center gap-2 text-xl font-bold text-white hover:text-blue-400 transition-colors">
-                                <i className="ph-fill ph-envelope-simple"></i> hello@calmflight.app
+                            <a href="mailto:contact@calmflightapp.com" className="inline-flex items-center gap-2 text-xl font-bold text-white hover:text-blue-400 transition-colors">
+                                <i className="ph-fill ph-envelope-simple"></i> contact@calmflightapp.com
                             </a>
                         </section>
 
