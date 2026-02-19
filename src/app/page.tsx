@@ -166,63 +166,6 @@ function HomeContent() {
             </p>
           </div>
 
-          <div className="ios-glass p-8 col-span-1 md:col-span-3 relative overflow-hidden ring-1 ring-blue-500/30">
-            <div className="absolute top-0 right-0 p-4">
-              <span className="bg-blue-600/20 text-blue-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full border border-blue-500/30">
-                {t('feat_v11_coming_soon')}
-              </span>
-            </div>
-
-            <div className="md:grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">{t('feat_v11_headline')}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8">
-                  {t('feat_v11_body')}
-                </p>
-
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-white mb-1 flex items-center gap-2">
-                      <i className="ph-fill ph-chart-line-up text-blue-400"></i>
-                      {t('feat_v11_objective_title')}
-                    </h4>
-                    <p className="text-xs text-slate-400 leading-relaxed ml-6">{t('feat_v11_objective_desc')}</p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-bold text-white mb-1 flex items-center gap-2">
-                      <i className="ph-fill ph-wifi-slash text-teal-400"></i>
-                      {t('feat_v11_wifi_title')}
-                    </h4>
-                    <p className="text-xs text-slate-400 leading-relaxed ml-6">{t('feat_v11_wifi_desc')}</p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-bold text-white mb-1 flex items-center gap-2">
-                      <i className="ph-fill ph-clock-counter-clockwise text-purple-400"></i>
-                      {t('feat_v11_logging_title')}
-                    </h4>
-                    <p className="text-xs text-slate-400 leading-relaxed ml-6">{t('feat_v11_logging_desc')}</p>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-white/5">
-                  <p className="text-sm font-medium text-blue-300 italic">
-                    "{t('feat_v11_tagline')}"
-                  </p>
-                </div>
-              </div>
-
-              <div className="hidden md:flex justify-center items-center relative h-full min-h-[300px] bg-blue-500/5 rounded-2xl border border-white/5">
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 text-4xl mb-4 animate-pulse">
-                    <i className="ph-fill ph-wave-sine"></i>
-                  </div>
-                  <p className="text-xs text-slate-500 font-mono uppercase tracking-widest">Live G-Force Monitor</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
