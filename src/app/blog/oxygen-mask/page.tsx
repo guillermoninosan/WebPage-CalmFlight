@@ -31,7 +31,7 @@ function OxygenMaskContent() {
                         But knowing the mechanics strips away the horror.
                     </p>
 
-                    <h3>1. Why do they drop?</h3>
+                    <h3 className="text-white mt-12 mb-4">1. Why do they drop?</h3>
                     <p>
                         Planes fly high (30,000+ feet) where the air is too thin to breathe comfortably. The cabin is
                         "pressurized" to feel like 6,000-8,000 feet. If that artificial pressure slips away (usually due to a
@@ -42,21 +42,21 @@ function OxygenMaskContent() {
                         this while the pilot descends."
                     </p>
 
-                    <h3>2. The Descent</h3>
+                    <h3 className="text-white mt-12 mb-4">2. The Descent</h3>
                     <p>
                         If masks drop, you will feel the plane descend. <strong>This is deliberate control, not a fall.</strong>
                         The pilots are simply driving the car down from the mountain to the valley where the air is thick
                         enough to breathe without masks. This takes about 3-5 minutes.
                     </p>
 
-                    <h3>3. The "Bag Does Not Inflate"</h3>
+                    <h3 className="text-white mt-12 mb-4">3. The "Bag Does Not Inflate"</h3>
                     <p>
                         We've all heard the safety demo. The bag doesn't inflate like a balloon because it's not holding a
                         tank of air. It's a "reservoir" bag. Oxygen flows steadily into it, and you breathe it in. Even if
                         it looks flat, oxygen is flowing.
                     </p>
 
-                    <div className="bg-blue-500/10 border border-blue-500/20 p-6 rounded-2xl not-prose my-8">
+                    <div className="bg-blue-500/10 border border-blue-500/20 p-6 rounded-2xl not-prose my-12">
                         <h4 className="flex items-center gap-2 font-bold text-blue-300 mb-2">
                             <i className="ph-fill ph-check-circle"></i>
                             Key Takeaway
