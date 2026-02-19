@@ -165,7 +165,6 @@ function HomeContent() {
               {t('feat_5_desc')}
             </p>
           </div>
-
         </div>
       </section>
 
