@@ -14,9 +14,19 @@ function BlogListContent() {
                 <div className="text-center mb-16">
                     <p className="text-xs uppercase tracking-[0.3em] text-blue-300/70 mb-4">New blog entries weekly</p>
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">Understanding conquers fear.</h1>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
                         Simple, science-backed explanations of how flying works, why your body reacts, and how to stay calm.
                     </p>
+
+                    {/* Topics Row */}
+                    <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+                        <Link href="/blog" className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm transition-colors cursor-pointer border border-white/10">All</Link>
+                        <Link href="/blog?topic=turbulence" className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-sm transition-colors border border-white/5">Turbulence</Link>
+                        <Link href="/blog?topic=sounds" className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-sm transition-colors border border-white/5">Sounds</Link>
+                        <Link href="/blog?topic=takeoff-landing" className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-sm transition-colors border border-white/5">Takeoff/Landing</Link>
+                        <Link href="/blog?topic=fear-of-flying" className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-sm transition-colors border border-white/5">Fear of Flying</Link>
+                        <Link href="/blog?topic=psychology" className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-sm transition-colors border border-white/5">Psychology</Link>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
