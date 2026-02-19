@@ -45,6 +45,7 @@ const content: Record<Language, Record<string, any>> = {
         link_privacy: "Privacy Policy",
         link_terms: "Terms (EULA)",
         link_releases: "Versions",
+
         // Releases Page
         page_title: "Launch Roadmap",
         page_subtitle: "A lifetime of updates. One price.",

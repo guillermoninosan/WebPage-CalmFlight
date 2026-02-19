@@ -9,23 +9,23 @@ function ReleasesContent() {
 
     const text = {
         en: [
-            { ver: "v1.0", date: "March 1st", title: "Global Launch", desc: "Panic Button, Offline Mode, Calm Audio, and 4 Games (Math, Memory, Sequence)." },
-            { ver: "v1.1", date: "Coming Soon", title: "Turbulence Meter", desc: "Real-time G-Force monitor to prove stability during bumps." },
+            { ver: "v1.0", date: "Released", title: "Live on App Store", desc: "Panic Button, Offline Mode, Calm Audio, and 4 Games (Math, Memory, Sequence)." },
+            { ver: "v1.1", date: "In Development", title: "Turbulence Meter", desc: "Real-time G-Force monitor to prove stability during bumps." },
             { ver: "v1.2", date: "Future", title: "Flight Log & Expansion", desc: "Track flights, earn 'Fearless Flyer' Badges, and unlock new Games." }
         ],
         es: [
-            { ver: "v1.0", date: "1 de Marzo", title: "Lanzamiento Global", desc: "Botón de Pánico, Modo Offline, Audio y 4 Juegos (Mates, Memoria, Secuencia)." },
-            { ver: "v1.1", date: "Próximamente", title: "Medidor de Turbulencia", desc: "Monitor de Fuerza-G para probar la estabilidad." },
+            { ver: "v1.0", date: "Publicado", title: "Disponible en App Store", desc: "Botón de Pánico, Juegos Cognitivos, Datos de Vuelo." },
+            { ver: "v1.1", date: "En Desarrollo", title: "Medidor de Turbulencia", desc: "Monitor de Fuerza-G, Contenido de Aviación Ampliado." },
             { ver: "v1.2", date: "Futuro", title: "Diario y Expansión", desc: "Registra vuelos, gana medallas 'Sin Miedo' y desbloquea nuevos juegos." }
         ],
         fr: [
-            { ver: "v1.0", date: "1er Mars", title: "Lancement", desc: "Bouton Panique, Hors Ligne, Audio et 4 Jeux (Maths, Mémoire, Séquence)." },
-            { ver: "v1.1", date: "Bientôt", title: "Mètre de Turbulence", desc: "Moniteur de Force-G pour prouver la stabilité." },
+            { ver: "v1.0", date: "Disponible", title: "En Ligne sur l'App Store", desc: "Bouton Panique, Jeux Cognitifs, Faits sur le Vol." },
+            { ver: "v1.1", date: "En Développement", title: "Mètre de Turbulence", desc: "Moniteur de Force-G, Contenu Aéronautique Étendu." },
             { ver: "v1.2", date: "Futur", title: "Journal et Extension", desc: "Suivez vos vols, gagnez des badges et débloquez de nouveaux jeux." }
         ],
         de: [
-            { ver: "v1.0", date: "1. März", title: "Globaler Start", desc: "Panik-Button, Offline, Audio und 4 Spiele (Mathe, Gedächtnis, Sequenz)." },
-            { ver: "v1.1", date: "Demnächst", title: "Turbulenz-Meter", desc: "G-Kraft-Monitor zum Nachweis der Stabilität." },
+            { ver: "v1.0", date: "Veröffentlicht", title: "Im App Store", desc: "Panik-Button, Kognitive Spiele, Flugfakten." },
+            { ver: "v1.1", date: "In Entwicklung", title: "Turbulenz-Meter", desc: "G-Kraft-Monitor, Erweiterte Luftfahrtinhalte." },
             { ver: "v1.2", date: "Zukunft", title: "Tagebuch & Erweiterung", desc: "Flüge tracken, 'Angstfrei'-Abzeichen verdienen und neue Spiele." }
         ]
     };
@@ -51,16 +51,17 @@ function ReleasesContent() {
                         let tag = null;
 
                         if (index === 0) {
-                            borderClass = 'border-blue-500/50 shadow-lg shadow-blue-900/20';
-                            tag = <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg animate-pulse">LAUNCH</div>;
+                            borderClass = 'border-green-500/50 shadow-lg shadow-green-900/20';
+                            tag = <div className="absolute -top-3 -right-3 bg-green-600 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg">LIVE</div>;
                         } else if (index === 1) {
-                            borderClass = 'border-white/10 border-dashed';
+                            borderClass = 'border-blue-500/30 border-dashed';
+                            tag = <div className="absolute -top-3 -right-3 bg-blue-600/80 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg">DEV</div>;
                         }
 
                         return (
                             <div key={index} className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-12 roadmap-item">
                                 <div className="md:w-32 flex-shrink-0 flex md:flex-col items-center md:items-end gap-2 md:gap-1 pt-2">
-                                    <div className={`text-sm font-bold ${isLatest ? 'text-blue-400' : 'text-slate-500'}`}>{v.ver}</div>
+                                    <div className={`text-sm font-bold ${isLatest ? 'text-green-400' : index === 1 ? 'text-blue-400' : 'text-slate-500'}`}>{v.ver}</div>
                                     <div className="text-xs text-slate-400 uppercase tracking-wider">{v.date}</div>
                                 </div>
                                 <div className={`relative flex-1 ios-glass p-6 border ${borderClass}`}>

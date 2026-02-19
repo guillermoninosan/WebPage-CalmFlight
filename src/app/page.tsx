@@ -29,11 +29,7 @@ function HomeContent() {
       <header className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-300 text-[10px] font-bold uppercase tracking-wider mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-              <span>Launching March 1st</span>
-            </div>
+            {/* Launch Badge Removed */}
 
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight" data-animate="headline">
               <span>{t('headline_1')}</span> <br />
@@ -51,27 +47,23 @@ function HomeContent() {
             </div>
 
             <div className="w-full max-w-md mt-8">
-              <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="flex flex-col sm:flex-row gap-3">
-                <input type="hidden" name="form-name" value="waitlist" />
-                <input type="hidden" name="bot-field" />
+              {/* App Store Button Replacement */}
+              <div className="flex flex-col sm:flex-row gap-4 items-start">
+                <a
+                  href="#APP_STORE_LINK_PLACEHOLDER"
+                  className="group relative overflow-hidden rounded-xl transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-blue-500/20"
+                >
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <img
+                    src={`/app_store_${language === 'en' || language === 'es' || language === 'fr' || language === 'de' ? language : 'en'}.png`}
+                    alt="Download on the App Store"
+                    className="h-[52px] w-auto invert brightness-0 grayscale opacity-90 group-hover:opacity-100 transition-all rounded-lg"
+                    style={{ filter: 'invert(1)' }}
+                  />
+                </a>
+              </div>
 
-                <div className="relative flex-grow">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <i className="ph-fill ph-envelope-simple text-slate-400"></i>
-                  </div>
-                  <input type="email" name="email"
-                    placeholder={t('email_placeholder')} required
-                    className="w-full h-12 pl-10 pr-4 bg-blue-900/20 border border-blue-500/30 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all" />
-                </div>
-
-                <button type="submit"
-                  className="h-12 px-6 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
-                  <span>Get launch reminder</span>
-                  <i className="ph-bold ph-bell-ringing"></i>
-                </button>
-              </form>
-
-              <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <p className="text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
                   <i className="ph-fill ph-check-circle text-blue-400"></i>
                   <span>Includes pre-flight checklist</span>
@@ -172,6 +164,64 @@ function HomeContent() {
             <p className="text-xs text-slate-400 leading-relaxed">
               {t('feat_5_desc')}
             </p>
+          </div>
+
+          <div className="ios-glass p-8 col-span-1 md:col-span-3 relative overflow-hidden ring-1 ring-blue-500/30">
+            <div className="absolute top-0 right-0 p-4">
+              <span className="bg-blue-600/20 text-blue-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full border border-blue-500/30">
+                {t('feat_v11_coming_soon')}
+              </span>
+            </div>
+
+            <div className="md:grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">{t('feat_v11_headline')}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                  {t('feat_v11_body')}
+                </p>
+
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-white mb-1 flex items-center gap-2">
+                      <i className="ph-fill ph-chart-line-up text-blue-400"></i>
+                      {t('feat_v11_objective_title')}
+                    </h4>
+                    <p className="text-xs text-slate-400 leading-relaxed ml-6">{t('feat_v11_objective_desc')}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-white mb-1 flex items-center gap-2">
+                      <i className="ph-fill ph-wifi-slash text-teal-400"></i>
+                      {t('feat_v11_wifi_title')}
+                    </h4>
+                    <p className="text-xs text-slate-400 leading-relaxed ml-6">{t('feat_v11_wifi_desc')}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-white mb-1 flex items-center gap-2">
+                      <i className="ph-fill ph-clock-counter-clockwise text-purple-400"></i>
+                      {t('feat_v11_logging_title')}
+                    </h4>
+                    <p className="text-xs text-slate-400 leading-relaxed ml-6">{t('feat_v11_logging_desc')}</p>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/5">
+                  <p className="text-sm font-medium text-blue-300 italic">
+                    "{t('feat_v11_tagline')}"
+                  </p>
+                </div>
+              </div>
+
+              <div className="hidden md:flex justify-center items-center relative h-full min-h-[300px] bg-blue-500/5 rounded-2xl border border-white/5">
+                <div className="text-center">
+                  <div className="w-20 h-20 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 text-4xl mb-4 animate-pulse">
+                    <i className="ph-fill ph-wave-sine"></i>
+                  </div>
+                  <p className="text-xs text-slate-500 font-mono uppercase tracking-widest">Live G-Force Monitor</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -295,23 +345,23 @@ function RoadmapList() {
 
   const text: Record<string, any[]> = {
     en: [
-      { ver: "v1.0", date: "March 1st", title: "Global Launch", desc: "Panic Button, Offline Mode, Calm Audio, and 4 Games (Math, Memory, Sequence)." },
-      { ver: "v1.1", date: "Coming Soon", title: "Turbulence Meter", desc: "Real-time G-Force monitor to prove stability during bumps." },
+      { ver: "v1.0", date: "Released", title: "Live on App Store", desc: "Panic Button, Cognitive Games, Flight Facts." },
+      { ver: "v1.1", date: "In Development", title: "Turbulence Meter", desc: "Real-time G-Force monitor, Expanded Aviation Content." },
       { ver: "v1.2", date: "Future", title: "Flight Log & Expansion", desc: "Track flights, earn 'Fearless Flyer' Badges, and unlock new Games." }
     ],
     es: [
-      { ver: "v1.0", date: "1 de Marzo", title: "Lanzamiento Global", desc: "Botón de Pánico, Modo Offline, Audio y 4 Juegos (Mates, Memoria, Secuencia)." },
-      { ver: "v1.1", date: "Próximamente", title: "Medidor de Turbulencia", desc: "Monitor de Fuerza-G para probar la estabilidad." },
+      { ver: "v1.0", date: "Publicado", title: "Disponible en App Store", desc: "Botón de Pánico, Juegos Cognitivos, Datos de Vuelo." },
+      { ver: "v1.1", date: "En Desarrollo", title: "Medidor de Turbulencia", desc: "Monitor de Fuerza-G, Contenido de Aviación Ampliado." },
       { ver: "v1.2", date: "Futuro", title: "Diario y Expansión", desc: "Registra vuelos, gana medallas 'Sin Miedo' y desbloquea nuevos juegos." }
     ],
     fr: [
-      { ver: "v1.0", date: "1er Mars", title: "Lancement", desc: "Bouton Panique, Hors Ligne, Audio et 4 Jeux (Maths, Mémoire, Séquence)." },
-      { ver: "v1.1", date: "Bientôt", title: "Mètre de Turbulence", desc: "Moniteur de Force-G pour prouver la stabilité." },
+      { ver: "v1.0", date: "Disponible", title: "En Ligne sur l'App Store", desc: "Bouton Panique, Jeux Cognitifs, Faits sur le Vol." },
+      { ver: "v1.1", date: "En Développement", title: "Mètre de Turbulence", desc: "Moniteur de Force-G, Contenu Aéronautique Étendu." },
       { ver: "v1.2", date: "Futur", title: "Journal et Extension", desc: "Suivez vos vols, gagnez des badges et débloquez de nouveaux jeux." }
     ],
     de: [
-      { ver: "v1.0", date: "1. März", title: "Globaler Start", desc: "Panik-Button, Offline, Audio und 4 Spiele (Mathe, Gedächtnis, Sequenz)." },
-      { ver: "v1.1", date: "Demnächst", title: "Turbulenz-Meter", desc: "G-Kraft-Monitor zum Nachweis der Stabilität." },
+      { ver: "v1.0", date: "Veröffentlicht", title: "Im App Store", desc: "Panik-Button, Kognitive Spiele, Flugfakten." },
+      { ver: "v1.1", date: "In Entwicklung", title: "Turbulenz-Meter", desc: "G-Kraft-Monitor, Erweiterte Luftfahrtinhalte." },
       { ver: "v1.2", date: "Zukunft", title: "Tagebuch & Erweiterung", desc: "Flüge tracken, 'Angstfrei'-Abzeichen verdienen und neue Spiele." }
     ]
   };
@@ -328,16 +378,17 @@ function RoadmapList() {
         let tag = null;
 
         if (index === 0) {
-          borderClass = 'border-blue-500/50 shadow-lg shadow-blue-900/20';
-          tag = <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg animate-pulse">LAUNCH</div>;
+          borderClass = 'border-green-500/50 shadow-lg shadow-green-900/20';
+          tag = <div className="absolute -top-3 -right-3 bg-green-600 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg">LIVE</div>;
         } else if (index === 1) {
-          borderClass = 'border-white/10 border-dashed';
+          borderClass = 'border-blue-500/30 border-dashed';
+          tag = <div className="absolute -top-3 -right-3 bg-blue-600/80 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg">DEV</div>;
         }
 
         return (
           <div key={index} className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-12 roadmap-item">
             <div className="md:w-32 flex-shrink-0 flex md:flex-col items-center md:items-end gap-2 md:gap-1 pt-2">
-              <div className={`text-sm font-bold ${isLatest ? 'text-blue-400' : 'text-slate-500'}`}>{v.ver}</div>
+              <div className={`text-sm font-bold ${isLatest ? 'text-green-400' : index === 1 ? 'text-blue-400' : 'text-slate-500'}`}>{v.ver}</div>
               <div className="text-xs text-slate-400 uppercase tracking-wider">{v.date}</div>
             </div>
             <div className={`relative flex-1 ios-glass p-6 border ${borderClass}`}>
