@@ -206,14 +206,14 @@ function HomeContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <article className="ios-glass p-6 md:p-8">
             <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-              <span className="px-2 py-1 rounded-full bg-blue-500/10 text-blue-200">Safety Basics</span>
-              <span>Feb 12, 2026</span>
+              <span className="px-2 py-1 rounded-full bg-purple-500/10 text-purple-200">Anxiety Relief</span>
+              <span>4 min read</span>
             </div>
-            <h3 className="text-xl font-semibold mb-3">How oxygen masks work on a plane</h3>
+            <h3 className="text-xl font-semibold mb-3">How to Stop a Panic Attack on a Plane (When You Have No Wi-Fi)</h3>
             <p className="text-sm text-slate-400 leading-relaxed mb-6">
-              A calm, step-by-step guide to why masks drop, how they make oxygen, and what to do when they appear.
+              Learn how to manage flight anxiety and stop a panic attack during turbulence when you don't have internet access.
             </p>
-            <Link href="/blog/oxygen-mask"
+            <Link href="/blog/stop-panic-attack-no-wifi"
               className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
               Read article <i className="ph-bold ph-caret-right"></i>
             </Link>
