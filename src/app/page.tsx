@@ -1,372 +1,276 @@
 'use client';
 
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { useLanguage, LanguageProvider } from '@/context/LanguageContext';
 import Link from 'next/link';
-import useScrollReveal from '@/hooks/useScrollReveal';
-import CalmCards from '@/components/CalmCards';
-import FAQ from '@/components/FAQ';
-import PricingComparison from '@/components/PricingComparison';
+import Image from 'next/image';
 
-function HomeContent() {
-  const { t, language } = useLanguage();
-  useScrollReveal();
-
-  const posters: Record<string, string> = {
-    en: "/app_mockup_en.webp",
-    es: "/app_mockup_es.webp",
-    fr: "/app_mockup_fr.webp",
-    de: "/app_mockup_de.webp"
-  };
-
-  const currentPoster = posters[language] || posters['en'];
-
+function CustomNav() {
   return (
-    <>
-      <Navbar />
-
-      <header className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase mb-8 animate-pulse">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-              {t('nav_date') === "March 1st" ? "Launching March 1st" : `Lanzamiento ${t('nav_date')}`}
-            </div>
-
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight" data-animate="headline">
-              <span>{t('headline_1')}</span> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300"
-              >{t('headline_2')}</span>
-            </h1>
-
-            <p className="text-slate-400 text-lg leading-relaxed mb-6 max-w-md" data-animate="headline">
-              {t('subheadline')}
-            </p>
-
-            <div className="flex items-center gap-2 text-sm text-green-400 font-medium mb-8">
-              <i className="ph-fill ph-airplane-tilt"></i>
-              <span>Works 100% Offline (Airplane Mode)</span>
-            </div>
-
-            <div className="w-full max-w-md mt-8">
-              <form name="launch-list" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="flex flex-col sm:flex-row gap-4 items-start">
-                <input type="hidden" name="form-name" value="launch-list" />
-                <input type="hidden" name="bot-field" />
-
-                <div className="relative w-full sm:w-auto flex-1">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <i className="ph-bold ph-envelope-simple text-slate-500"></i>
-                  </div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={t('email_placeholder')}
-                    required
-                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2"
-                >
-                  <span>{t('notify_btn')}</span>
-                  <i className="ph-bold ph-bell"></i>
-                </button>
-              </form>
-
-              <div className="mt-4 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
-                <p className="text-[10px] text-blue-300 font-medium tracking-wide uppercase">{t('email_disclaimer')}</p>
-              </div>
-
-              <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <p className="text-[11px] text-slate-400 flex items-center gap-1.5 ml-1">
-                  <i className="ph-fill ph-check-circle text-blue-400"></i>
-                  <span>Includes pre-flight checklist</span>
-                </p>
-                <a href="#calm-cards" className="text-xs text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
-                  Preview free Calm Cards <i className="ph-bold ph-arrow-down"></i>
-                </a>
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-col items-start gap-3">
-              <div className="text-sm text-gray-500 flex items-center gap-2">
-                <i className="ph-fill ph-download-simple text-blue-400"></i>
-                <span className="text-white font-bold tracking-wide">{t('price_free')}</span>
-                <span className="text-slate-500">•</span>
-                <span className="text-slate-400 text-xs">{t('iap_badge')}</span>
-              </div>
-
-              <div
-                className="text-[11px] text-teal-300 font-medium bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <i className="ph-bold ph-infinity"></i>
-                <span>{t('premium_offer')}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex justify-center scale-95 md:scale-100">
-            <div
-              className="relative w-[280px] h-[580px] bg-black border-[8px] border-[#1c1c1e] rounded-[50px] shadow-2xl overflow-hidden ring-1 ring-white/10 transition-all duration-500">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
-
-              <video
-                id="app-video"
-                poster={currentPoster}
-                autoPlay loop muted playsInline
-                key={language}
-                className="w-full h-full object-cover"
-              >
-                <source src="/app_demo.mp4" type="video/mp4" />
-                <img src={currentPoster} alt="CalmFlight App Demo" className="w-full h-full object-cover" />
-              </video>
-            </div>
-          </div>
-        </div >
-      </header >
-
-      <section className="max-w-5xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold mb-8">{t('features_title')}</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="ios-glass p-8 col-span-1 md:col-span-2 relative overflow-hidden group">
-            <div className="relative z-10">
-              <div
-                className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 text-xl mb-4">
-                <i className="ph-fill ph-path"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-3">{t('feat_1_title')}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-lg">
-                {t('feat_1_desc')}
-              </p>
-            </div>
-          </div>
-          <div className="ios-glass p-8 col-span-1 flex flex-col justify-between">
-            <div>
-              <div
-                className="w-10 h-10 bg-teal-500/20 rounded-full flex items-center justify-center text-teal-400 text-xl mb-4">
-                <i className="ph-fill ph-airplane-in-flight"></i>
-              </div>
-              <h3 className="text-lg font-bold mb-3">{t('feat_2_title')}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                {t('feat_2_desc')}
-              </p>
-            </div>
-          </div>
-          <div className="ios-glass p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <i className="ph-fill ph-chalkboard-teacher text-purple-400 text-xl"></i>
-              <h3 className="font-bold text-sm">{t('feat_3_title')}</h3>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              {t('feat_3_desc')}
-            </p>
-          </div>
-          <div className="ios-glass p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <i className="ph-fill ph-hand-tap text-orange-400 text-xl"></i>
-              <h3 className="font-bold text-sm">{t('feat_4_title')}</h3>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              {t('feat_4_desc')}
-            </p>
-          </div>
-          <div className="ios-glass p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <i className="ph-fill ph-headphones text-green-400 text-xl"></i>
-              <h3 className="font-bold text-sm">{t('feat_5_title')}</h3>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              {t('feat_5_desc')}
-            </p>
-          </div>
+    <header className="fixed top-0 w-full z-50 bg-[#050a14]/90 backdrop-blur-xl border-b border-white/5">
+      <div className="max-w-[1040px] mx-auto px-6 h-16 flex justify-between items-center relative">
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity z-10 shrink-0">
+          <Image src="/logo_wide.webp" alt="CalmFlight Logo" width={32} height={32} className="h-7 w-auto rounded-lg shadow-lg" unoptimized />
+          <span className="font-bold text-xl tracking-tight text-white leading-none pt-0.5">CalmFlight</span>
+        </Link>
+        <div className="flex items-center">
+          <a href="#download" className="bg-white/10 hover:bg-white/20 border border-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all text-white">
+            Get the app
+          </a>
         </div>
-      </section>
-
-      <section id="calm-cards" className="max-w-6xl mx-auto px-6 py-12">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-4">Free Calm Cards</h2>
-          <p className="text-slate-400 text-sm max-w-xl mx-auto">Built for in-flight moments. Read them, save them, or share them with a nervous flyer.</p>
-        </div>
-        <CalmCards />
-      </section>
-
-      <section className="max-w-5xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-blue-300/70">Flight Calm Journal</p>
-            <h2 className="text-2xl font-bold mt-2">From the blog</h2>
-          </div>
-          <Link href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
-            Browse all articles <i className="ph-bold ph-caret-right"></i>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <article className="ios-glass p-6 md:p-8">
-            <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-              <span className="px-2 py-1 rounded-full bg-purple-500/10 text-purple-200">Anxiety Relief</span>
-              <span>4 min read</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-3">How to Stop a Panic Attack on a Plane (When You Have No Wi-Fi)</h3>
-            <p className="text-sm text-slate-400 leading-relaxed mb-6">
-              Learn how to manage flight anxiety and stop a panic attack during turbulence when you don't have internet access.
-            </p>
-            <Link href="/blog/stop-panic-attack-no-wifi"
-              className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
-              Read article <i className="ph-bold ph-caret-right"></i>
-            </Link>
-          </article>
-          <div className="ios-glass p-6 md:p-8 flex flex-col justify-between border border-white/5">
-            <div>
-              <div
-                className="w-10 h-10 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-300 text-xl mb-4">
-                <i className="ph-fill ph-lightbulb"></i>
-              </div>
-              <h3 className="text-lg font-semibold mb-3">New articles every month</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Short, science-backed explainers to make flying feel predictable and less intimidating.
-              </p>
-            </div>
-            <Link href="/blog"
-              className="mt-6 inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white transition-colors">
-              Visit the blog <i className="ph-bold ph-caret-right"></i>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <div className="text-center mb-12 relative">
-          <h2 className="text-2xl font-bold mb-2">{t('roadmap_title')}</h2>
-          <p className="text-slate-400 text-sm mb-4">{t('roadmap_sub')}</p>
-
-          <Link href="/releases"
-            className="inline-flex items-center gap-1 text-xs text-blue-400 hover:text-white transition-colors font-medium">
-            <span>{t('view_roadmap')}</span>
-            <i className="ph-bold ph-caret-right"></i>
-          </Link>
-        </div>
-
-        <div className="relative space-y-8" id="roadmap-container">
-          <div className="timeline-line hidden md:block"></div>
-          <RoadmapList />
-        </div>
-      </section>
-
-      <section className="max-w-3xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold mb-8 text-center">Fair Pricing, Forever</h2>
-        <PricingComparison />
-      </section>
-
-      <section className="max-w-3xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-        <FAQ />
-      </section>
-
-      <section className="max-w-3xl mx-auto px-6 py-12 mb-12">
-        <div className="ios-glass p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">{t('contact_title')}</h2>
-          <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
-            {t('contact_sub')}
-          </p>
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="max-w-sm mx-auto space-y-4">
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
-
-            <input type="text" name="name" placeholder="Name" required
-              className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
-
-            <input type="email" name="email" placeholder="Email" required
-              className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
-
-            <textarea name="message" placeholder="Message" rows={3} required
-              className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"></textarea>
-
-            <button type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all">
-              {t('send_btn')}
-            </button>
-          </form>
-        </div>
-      </section>
-
-      <Footer />
-    </>
+      </div>
+    </header>
   );
 }
 
-function RoadmapList() {
-  const { language } = useLanguage();
-
-  const text: Record<string, any[]> = {
-    en: [
-      { ver: "v1.0", date: "Released", title: "Live on App Store", desc: "Panic Button, Cognitive Games, Flight Facts." },
-      { ver: "v1.1", date: "In Development", title: "Turbulence Meter", desc: "Real-time G-Force monitor, Expanded Aviation Content." },
-      { ver: "v1.2", date: "Future", title: "Flight Log & Expansion", desc: "Track flights, earn 'Fearless Flyer' Badges, and unlock new Games." }
-    ],
-    es: [
-      { ver: "v1.0", date: "Publicado", title: "Disponible en App Store", desc: "Botón de Pánico, Juegos Cognitivos, Datos de Vuelo." },
-      { ver: "v1.1", date: "En Desarrollo", title: "Medidor de Turbulencia", desc: "Monitor de Fuerza-G, Contenido de Aviación Ampliado." },
-      { ver: "v1.2", date: "Futuro", title: "Diario y Expansión", desc: "Registra vuelos, gana medallas 'Sin Miedo' y desbloquea nuevos juegos." }
-    ],
-    fr: [
-      { ver: "v1.0", date: "Disponible", title: "En Ligne sur l'App Store", desc: "Bouton Panique, Jeux Cognitifs, Faits sur le Vol." },
-      { ver: "v1.1", date: "En Développement", title: "Mètre de Turbulence", desc: "Moniteur de Force-G, Contenu Aéronautique Étendu." },
-      { ver: "v1.2", date: "Futur", title: "Journal et Extension", desc: "Suivez vos vols, gagnez des badges et débloquez de nouveaux jeux." }
-    ],
-    de: [
-      { ver: "v1.0", date: "Veröffentlicht", title: "Im App Store", desc: "Panik-Button, Kognitive Spiele, Flugfakten." },
-      { ver: "v1.1", date: "In Entwicklung", title: "Turbulenz-Meter", desc: "G-Kraft-Monitor, Erweiterte Luftfahrtinhalte." },
-      { ver: "v1.2", date: "Zukunft", title: "Tagebuch & Erweiterung", desc: "Flüge tracken, 'Angstfrei'-Abzeichen verdienen und neue Spiele." }
-    ]
-  };
-
-  // @ts-ignore
-  const items = text[language] || text['en'];
-
+function CustomFooter() {
   return (
-    <>
-      <div className="timeline-line hidden md:block"></div>
-      {items.map((v: any, index: any) => {
-        const isLatest = index === 0;
-        let borderClass = 'border-white/5';
-        let tag = null;
-
-        if (index === 0) {
-          borderClass = 'border-green-500/50 shadow-lg shadow-green-900/20';
-          tag = <div className="absolute -top-3 -right-3 bg-green-600 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg">LIVE</div>;
-        } else if (index === 1) {
-          borderClass = 'border-blue-500/30 border-dashed';
-          tag = <div className="absolute -top-3 -right-3 bg-blue-600/80 text-white text-[10px] px-2 py-1 rounded-full font-bold shadow-lg">DEV</div>;
-        }
-
-        return (
-          <div key={index} className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-12 roadmap-item">
-            <div className="md:w-32 flex-shrink-0 flex md:flex-col items-center md:items-end gap-2 md:gap-1 pt-2">
-              <div className={`text-sm font-bold ${isLatest ? 'text-green-400' : index === 1 ? 'text-blue-400' : 'text-slate-500'}`}>{v.ver}</div>
-              <div className="text-xs text-slate-400 uppercase tracking-wider">{v.date}</div>
-            </div>
-            <div className={`relative flex-1 ios-glass p-6 border ${borderClass}`}>
-              {tag}
-              <h3 className="text-lg font-bold text-white mb-2">{v.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{v.desc}</p>
-            </div>
-          </div>
-        );
-      })}
-    </>
+    <footer className="max-w-[1040px] mx-auto px-6 py-12 border-t border-white/10 text-center md:text-left">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="text-slate-500 text-sm">
+          &copy; CalmFlight <span className="mx-2">•</span> Built for airplane mode.
+        </div>
+        <div className="flex gap-6 text-sm text-slate-400 justify-center">
+          <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+        </div>
+      </div>
+    </footer>
   );
 }
 
 export default function Home() {
   return (
-    <LanguageProvider>
-      <HomeContent />
-    </LanguageProvider>
+    <main className="min-h-screen bg-[#050a14] text-white flex flex-col">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-[100] outline-none ring-2 ring-white">
+        Skip to content
+      </a>
+      <CustomNav />
+
+      <div id="main-content" className="flex-1">
+
+        {/* A) HERO */}
+        <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-[#050a14] to-purple-900/10 pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E")' }} />
+
+          <div className="max-w-[1040px] mx-auto relative z-10 text-center md:text-left">
+            <h1 className="text-4xl md:text-[52px] font-bold leading-[1.1] mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-300 max-w-3xl md:mx-0 mx-auto">
+              Calm down mid-flight — even with zero Wi-Fi.
+            </h1>
+            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed md:mx-0 mx-auto">
+              Simple tools for flight anxiety: guided breathing, quick focus tasks, calming sounds, and clear explanations — built for airplane mode.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+              <a href="#guide" className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-[#050a14]">
+                Read the guide
+              </a>
+              <a href="#download" className="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold rounded-full transition-all backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#050a14]">
+                Get the app
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* B) EMPATHY & PROBLEM */}
+        <section className="py-20 px-6">
+          <div className="max-w-[1040px] mx-auto">
+            <div className="ios-glass p-8 md:p-12 rounded-[2rem]">
+              <h2 className="text-3xl font-bold mb-6">’Just relax’ isn’t a plan.</h2>
+              <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl">
+                When turbulence starts, your body can switch into alarm mode. And the usual coping tools often fail at the worst time — slow internet, no signal, nothing to load. CalmFlight is designed for the moment you need help right now.
+              </p>
+              <div className="inline-flex items-center px-4 py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-200 text-sm font-medium">
+                An anxious brain + an offline cabin = a tough combo.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* C) THE “2-MINUTE STRIP” */}
+        <section className="py-16 px-6 bg-white/[0.02] border-y border-white/5 overflow-hidden">
+          <div className="max-w-[1040px] mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-10">What you get in 2 minutes</h2>
+            <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-8 mb-6">
+              <div className="flex-1 ios-glass p-6 rounded-2xl flex items-center justify-center text-center font-semibold text-[17px] border border-white/10">
+                1. Tap Panic Button
+              </div>
+              <div className="hidden md:flex items-center text-slate-500">
+                <i className="ph-bold ph-arrow-right text-2xl"></i>
+              </div>
+              <div className="flex-1 ios-glass p-6 rounded-2xl flex items-center justify-center text-center font-semibold text-[17px] border border-white/10">
+                2. 60–90 seconds guided breathing
+              </div>
+              <div className="hidden md:flex items-center text-slate-500">
+                <i className="ph-bold ph-arrow-right text-2xl"></i>
+              </div>
+              <div className="flex-1 ios-glass p-6 rounded-2xl flex items-center justify-center text-center font-semibold text-[17px] border border-white/10">
+                3. 60 seconds focus task or calm audio
+              </div>
+            </div>
+            <p className="text-sm text-slate-500">No setup. Works in airplane mode.</p>
+          </div>
+        </section>
+
+        {/* D) PHYSICS OF FLIGHT */}
+        <section className="py-24 px-6">
+          <div className="max-w-[1040px] mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 max-w-2xl leading-tight">
+              Fear thrives on the unknown. Here’s what’s actually happening.
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="ios-glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all">
+                <h3 className="text-xl font-bold mb-3">It feels like falling</h3>
+                <p className="text-slate-400 leading-relaxed">
+                  You’re usually feeling a quick change in vertical airflow, not a ‘drop.’
+                </p>
+              </div>
+              <div className="ios-glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all">
+                <h3 className="text-xl font-bold mb-3">Wings bending looks scary</h3>
+                <p className="text-slate-400 leading-relaxed">
+                  That flexibility is by design; it helps absorb forces.
+                </p>
+              </div>
+              <div className="ios-glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all">
+                <h3 className="text-xl font-bold mb-3">Turbulence = danger</h3>
+                <p className="text-slate-400 leading-relaxed">
+                  Turbulence is uncomfortable, but aircraft are engineered and pilots plan for it.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* E) WHY THIS WORKS */}
+        <section id="guide" className="py-20 px-6 bg-gradient-to-b from-transparent to-white/[0.02]">
+          <div className="max-w-[1040px] mx-auto">
+            <h2 className="text-3xl font-bold mb-6">Why a focus task can calm the spiral.</h2>
+            <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl">
+              You can’t force anxiety off with willpower — but you can redirect attention. Short, demanding tasks (like quick mental math) use the same ‘mental bandwidth’ that anxious spirals rely on. For many people, that shift reduces intensity and helps the body settle.
+            </p>
+            <div className="inline-flex items-center px-4 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-200 text-sm font-medium">
+              Breathe first, then switch to focus.
+            </div>
+          </div>
+        </section>
+
+        {/* F) AHA PIVOT */}
+        <section className="py-24 px-6 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-3xl font-bold mb-6">You shouldn’t have to improvise in the air.</h2>
+            <p className="text-lg md:text-lg text-slate-400 leading-relaxed mb-10">
+              When you’re anxious, it’s hard to remember techniques or ‘think your way out’ of it. You need something simple, immediate, and ready offline.
+            </p>
+            <p className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+              That’s why we built CalmFlight.
+            </p>
+          </div>
+        </section>
+
+        {/* G) PREMIUM FEATURE SHOWCASE */}
+        <section className="py-20 px-6">
+          <div className="max-w-[1040px] mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12">Built for the exact moment you need it.</h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+
+              <div className="ios-glass p-8 rounded-[2rem] border border-white/10 hover:bg-white/[0.05] transition-colors flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/20">
+                  <i className="ph-fill ph-warning-circle text-red-400 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Panic Button</h3>
+                  <p className="text-slate-400 leading-relaxed">One tap → guided breathing (with haptics if available).</p>
+                </div>
+              </div>
+
+              <div className="ios-glass p-8 rounded-[2rem] border border-white/10 hover:bg-white/[0.05] transition-colors flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/20">
+                  <i className="ph-fill ph-math-operations text-blue-400 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Quick Focus</h3>
+                  <p className="text-slate-400 leading-relaxed">Quick mental math to redirect attention.</p>
+                </div>
+              </div>
+
+              <div className="ios-glass p-8 rounded-[2rem] border border-white/10 hover:bg-white/[0.05] transition-colors flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-purple-500/20 flex items-center justify-center border border-purple-500/20">
+                  <i className="ph-fill ph-headphones text-purple-400 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Calm Sounds</h3>
+                  <p className="text-slate-400 leading-relaxed">Offline soundscapes for a steady background.</p>
+                </div>
+              </div>
+
+              <div className="ios-glass p-8 rounded-[2rem] border border-white/10 hover:bg-white/[0.05] transition-colors flex flex-col md:flex-row gap-6 items-start">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/20">
+                  <i className="ph-fill ph-cards text-emerald-400 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Calm Cards</h3>
+                  <p className="text-slate-400 leading-relaxed">Short, reassuring explanations for common flight fears.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <p className="text-sm text-slate-500 mt-8 text-center md:text-left ml-2">Coming later: Turbulence Meter (v1.1)</p>
+          </div>
+        </section>
+
+        {/* H) OFFLINE GUARANTEE + FINAL CTA */}
+        <section id="download" className="py-24 px-6 text-center border-t border-white/5 bg-gradient-to-t from-blue-900/10 to-transparent">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Your calm space at 35,000 feet.</h2>
+            <p className="text-lg text-slate-300 mb-10 leading-relaxed">
+              No Wi-Fi needed. No subscriptions. No tracking. Just practical tools when you need them.
+            </p>
+
+            <p className="text-xl font-bold mb-8">Download CalmFlight before you board.</p>
+
+            <a href="#" className="inline-flex items-center justify-center bg-white text-black font-bold py-4 px-8 rounded-full text-lg hover:scale-105 transition-transform" aria-label="Download on the App Store">
+              Download on the App Store
+            </a>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <span className="px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-300 text-xs font-medium inline-flex items-center gap-1.5"><i className="ph-fill ph-check-circle"></i> Works in airplane mode</span>
+              <span className="px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-300 text-xs font-medium inline-flex items-center gap-1.5"><i className="ph-fill ph-check-circle"></i> No account</span>
+              <span className="px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-300 text-xs font-medium inline-flex items-center gap-1.5"><i className="ph-fill ph-check-circle"></i> Private by default</span>
+            </div>
+          </div>
+        </section>
+
+        {/* I) FAQ */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-[1040px] mx-auto">
+            <h2 className="text-2xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
+            <div className="max-w-3xl mx-auto space-y-6">
+
+              <div className="ios-glass p-6 md:p-8 rounded-3xl text-left border border-white/10">
+                <h3 className="text-lg font-bold mb-3">Does it work without Wi-Fi?</h3>
+                <p className="text-slate-400">Yes — CalmFlight is designed to work fully offline in airplane mode.</p>
+              </div>
+
+              <div className="ios-glass p-6 md:p-8 rounded-3xl text-left border border-white/10">
+                <h3 className="text-lg font-bold mb-3">Is it a subscription?</h3>
+                <p className="text-slate-400">No subscriptions.</p>
+              </div>
+
+              <div className="ios-glass p-6 md:p-8 rounded-3xl text-left border border-white/10">
+                <h3 className="text-lg font-bold mb-3">Does CalmFlight track me?</h3>
+                <p className="text-slate-400">No tracking.</p>
+              </div>
+
+              <div className="ios-glass p-6 md:p-8 rounded-3xl text-left border border-white/10">
+                <h3 className="text-lg font-bold mb-3">Is this medical treatment?</h3>
+                <p className="text-slate-400">No. CalmFlight offers practical tools for anxious moments, but it’s not medical care.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <CustomFooter />
+    </main>
   );
 }
