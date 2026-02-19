@@ -25,12 +25,6 @@ function PanicAttackContent() {
                     </p>
                 </header>
 
-                <div className="ios-glass p-1 rounded-2xl overflow-hidden mb-12">
-                    <div className="bg-purple-900/20 aspect-video flex items-center justify-center rounded-xl">
-                        <i className="ph-fill ph-wifi-slash text-6xl text-purple-500/50"></i>
-                    </div>
-                </div>
-
                 <div className="prose prose-invert prose-lg mx-auto text-slate-300">
                     <p className="lead text-white text-xl">
                         The cabin doors close. The flight attendant tells you to switch your phone to Airplane Mode. For many nervous flyers, this is the exact moment the panic sets in.
@@ -64,24 +58,6 @@ function PanicAttackContent() {
                     <p>
                         Download it before you board, and turn turbulence into calm. Available now on the App Store.
                     </p>
-
-                    <div className="bg-purple-500/10 border border-purple-500/20 p-6 rounded-2xl not-prose my-8 text-center">
-                        <h4 className="flex items-center justify-center gap-2 font-bold text-purple-300 mb-4">
-                            <i className="ph-fill ph-download-simple"></i>
-                            Get CalmFlight
-                        </h4>
-                        <a
-                            href="#APP_STORE_LINK_PLACEHOLDER"
-                            className="inline-block"
-                        >
-                            <img
-                                src="/app_store_en.png"
-                                alt="Download on the App Store"
-                                className="h-[44px] w-auto invert brightness-0 grayscale opacity-90 hover:opacity-100 transition-all"
-                                style={{ filter: 'invert(1)' }}
-                            />
-                        </a>
-                    </div>
                 </div>
 
                 <div className="mt-16 pt-8 border-t border-white/10 text-center">

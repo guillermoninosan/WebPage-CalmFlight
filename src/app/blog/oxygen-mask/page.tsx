@@ -25,12 +25,6 @@ function OxygenMaskContent() {
                     </p>
                 </header>
 
-                <div className="ios-glass p-1 rounded-2xl overflow-hidden mb-12">
-                    <div className="bg-blue-900/20 aspect-video flex items-center justify-center rounded-xl">
-                        <i className="ph-fill ph-mask-happy text-6xl text-blue-500/50"></i>
-                    </div>
-                </div>
-
                 <div className="prose prose-invert prose-lg mx-auto text-slate-300">
                     <p className="lead text-white text-xl">
                         The moment the masks drop is probably the most terrifying scene imaginable for a nervous flyer.
