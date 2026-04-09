@@ -14,14 +14,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const content: Record<Language, Record<string, any>> = {
     en: {
-        nav_date: "March 1st",
+        nav_date: "Available Now",
         offline_badge: "Works 100% Offline",
         headline_1: "Turn turbulence into",
         headline_2: "your new calm.",
         subheadline: "Where immediate relaxation meets knowledge. From deep breathing to cognitive distraction in two minutes.",
         email_placeholder: "Enter your email",
         notify_btn: "Notify Me",
-        email_disclaimer: "Be the first to download on March 1st.",
+        email_disclaimer: "Free download on the App Store.",
         price_free: "Free Download",
         iap_badge: "In-App Purchase",
         premium_offer: "Lifetime Premium: $12.99 (One-time)",
@@ -58,7 +58,7 @@ const content: Record<Language, Record<string, any>> = {
         date_terms: "Last Updated: February 2026"
     },
     es: {
-        nav_date: "1 de Marzo",
+        nav_date: "Disponible Ahora",
         offline_badge: "Funciona 100% Offline",
         headline_1: "Convierte la turbulencia",
         headline_2: "en tu nueva calma.",
@@ -101,7 +101,7 @@ const content: Record<Language, Record<string, any>> = {
         date_terms: "Última actualización: Febrero 2026"
     },
     fr: {
-        nav_date: "1er Mars",
+        nav_date: "Disponible Maintenant",
         offline_badge: "Fonctionne 100% Hors Ligne",
         headline_1: "Transformez la turbulence",
         headline_2: "en votre nouveau calme.",
@@ -144,7 +144,7 @@ const content: Record<Language, Record<string, any>> = {
         date_terms: "Dernière mise à jour : Février 2026"
     },
     de: {
-        nav_date: "1. März",
+        nav_date: "Jetzt Verfügbar",
         offline_badge: "Funktioniert 100% Offline",
         headline_1: "Verwandle Turbulenzen",
         headline_2: "in deine neue Ruhe.",

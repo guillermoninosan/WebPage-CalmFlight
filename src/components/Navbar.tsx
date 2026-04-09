@@ -5,8 +5,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 
+const APP_STORE_LINKS: Record<string, string> = {
+    en: 'https://apps.apple.com/us/app/calmflight-flight-anxiety/id6758919357',
+    es: 'https://apps.apple.com/es/app/calmflight-miedo-a-volar/id6758919357',
+    fr: 'https://apps.apple.com/fr/app/calmflight-flight-anxiety/id6758919357',
+    de: 'https://apps.apple.com/de/app/calmflight-flight-anxiety/id6758919357',
+};
+
 export default function Navbar() {
-    const { t, language, setLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage();
+    const appStoreLink = APP_STORE_LINKS[language] || APP_STORE_LINKS.en;
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -51,6 +59,14 @@ export default function Navbar() {
                         <i className="ph-fill ph-notebook text-blue-400"></i>
                         <span>Blog</span>
                     </Link>
+                    <Link href="/resources" className="hidden md:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
+                        <i className="ph-fill ph-books text-green-400"></i>
+                        <span>Resources</span>
+                    </Link>
+                    <Link href="/contact" className="hidden md:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
+                        <i className="ph-fill ph-envelope-simple text-purple-400"></i>
+                        <span>Contact</span>
+                    </Link>
 
                     <div className="relative" ref={dropdownRef}>
                         <button
@@ -76,9 +92,17 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <div className="hidden xs:flex bg-blue-600/20 border border-blue-500/50 text-blue-200 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold shadow-lg shadow-blue-900/20 cursor-default whitespace-nowrap">
-                        {t('nav_date')}
-                    </div>
+                    <a
+                        href={appStoreLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden xs:flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold shadow-lg shadow-blue-900/20 transition-colors whitespace-nowrap"
+                        aria-label="Download CalmFlight on the App Store"
+                    >
+                        <i className="ph-fill ph-apple-logo"></i>
+                        <span className="hidden sm:inline">Download Free</span>
+                        <span className="sm:hidden">App Store</span>
+                    </a>
                 </div>
             </div>
         </nav>
